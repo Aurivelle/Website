@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-document.getElementById("Computing Theory").addEventListener("click", function () 
-{
-    alert("安安你好");
-=======
 // 等待 DOM 加載完成後執行
 document.addEventListener("DOMContentLoaded", () => {
   // 初始化 Highlight.js（程式碼高亮）
@@ -152,5 +147,4 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
     console.error("Error submitting content:", error);
     alert("Submission Failed!");
   }
->>>>>>> 67a9e88 (typesetting_and_structure_building)
 });
