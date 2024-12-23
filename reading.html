@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Learning Materials</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <aside>
+                <h1>Learning Materials</h1>
+                <nav>
+                    <a href="index.html">返回首頁</a>
+                    <a href="leetcode.html">LeetCode Problems</a>
+                    <a href="papers.html">Papers</a>
+                </nav>
+            </aside>
+
+            <main>
+                <h2>Recommended Learning Materials</h2>
+                <ul id="materials-list">
+                    <li><a href="https://developer.mozilla.org/en-US/"
+                            target="_blank">MDN Web Docs</a></li>
+                    <li><a href="https://www.w3schools.com/"
+                            target="_blank">W3Schools</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/"
+                            target="_blank">GeeksforGeeks</a></li>
+                </ul>
+
+                <h3>Add New Material</h3>
+                <form id="add-material-form">
+                    <input type="text" id="material-name"
+                        placeholder="Material Name" required />
+                    <input type="url" id="material-url"
+                        placeholder="Material URL" required />
+                    <button type="submit">Add Material</button>
+                </form>
+            </main>
+        </div>
+
+        <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const materialForm = document.getElementById("add-material-form");
+            const materialsList = document.getElementById("materials-list");
+
+            // Handle form submission to add new learning materials
+            materialForm.addEventListener("submit", (event) => {
+                event.preventDefault();
+
+                const name = document.getElementById("material-name").value.trim();
+                const url = document.getElementById("material-url").value.trim();
+
+                if (!name || !url) {
+                    alert("Please fill in both fields.");
+                    return;
+                }
+
+                const newMaterial = document.createElement("li");
+                newMaterial.innerHTML = `<a href="${url}" target="_blank">${name}</a>`;
+                materialsList.appendChild(newMaterial);
+
+                // Clear input fields
+                document.getElementById("material-name").value = "";
+                document.getElementById("material-url").value = "";
+            });
+        });
+    </script>
+    </body>
+</html>

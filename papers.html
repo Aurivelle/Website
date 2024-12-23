@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Papers</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <aside>
+                <h1>Papers</h1>
+                <nav>
+                    <a href="index.html">返回首頁</a>
+                    <a href="leetcode.html">LeetCode Problems</a>
+                    <a href="reading.html">Reading Materials</a>
+                </nav>
+            </aside>
+
+            <main>
+                <h2>Paper Categories</h2>
+                <ul id="paper-categories">
+                    <li><a href="#">Deep Learning</a></li>
+                    <li><a href="#">Natural Language Processing</a></li>
+                    <li><a href="#">Computer Vision</a></li>
+                    <li><a href="#">Reinforcement Learning</a></li>
+                    <li><a href="#">Optimization Algorithms</a></li>
+                </ul>
+
+                <h3>Recent Papers</h3>
+                <div id="recent-papers">
+                    <p>No papers added yet.</p>
+                </div>
+
+                <h3>Add a New Paper</h3>
+                <form id="add-paper-form">
+                    <input type="text" id="paper-title"
+                        placeholder="Paper Title" required />
+                    <input type="url" id="paper-url" placeholder="Paper URL"
+                        required />
+                    <button type="submit">Add Paper</button>
+                </form>
+            </main>
+        </div>
+
+        <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const paperForm = document.getElementById("add-paper-form");
+            const recentPapers = document.getElementById("recent-papers");
+
+            // Handle form submission to add new papers
+            paperForm.addEventListener("submit", (event) => {
+                event.preventDefault();
+
+                const title = document.getElementById("paper-title").value.trim();
+                const url = document.getElementById("paper-url").value.trim();
+
+                if (!title || !url) {
+                    alert("Please fill in both fields.");
+                    return;
+                }
+
+                const newPaper = document.createElement("p");
+                newPaper.innerHTML = `<a href="${url}" target="_blank">${title}</a>`;
+                recentPapers.appendChild(newPaper);
+
+                // Clear the input fields
+                document.getElementById("paper-title").value = "";
+                document.getElementById("paper-url").value = "";
+            });
+        });
+    </script>
+    </body>
+</html>

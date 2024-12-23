@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>11. Container with Most Water</title>
+
+        <!-- Highlight.js -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
+        <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            hljs.highlightAll(); // 初始化程式碼高亮
+        });
+    </script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dracula.min.css">
+
+        <!-- CSS Style -->
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        pre {
+            background-color: #333; /* 黑底 */
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-size: 14px;
+            border: 1px solid #444;
+            margin-bottom: 20px;
+        }
+
+        code {
+            color: #fff;
+        }
+
+        .explanation, .section, .form-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .explanation h2 {
+            color: #ffd700; /* 金黃色標題 */
+        }
+
+        textarea, input[type="file"] {
+            width: 100%;
+            max-width: 600px;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            resize: none;
+        }
+
+        .form-section textarea {
+            height: 80px;
+        }
+    </style>
+    </head>
+    <body>
+        <h1>11. Container with Most Water</h1>
+
+        <!-- Explanation Section -->
+        <div class="explanation">
+            <h2>About the Problem</h2>
+            <p>
+                This is a medium-level problem called
+                "Container with Most Water." The goal is to find the maximum
+                amount of water that can be contained between two vertical
+                lines.
+            </p>
+        </div>
+
+        <!-- Code Snippet Section -->
+        <div class="section">
+            <h2>Code Snippet</h2>
+            <pre>
+<code class="language-c">
+int min(int a, int b) {
+    return a < b ? a : b;
+}
+int max(int a, int b) {
+    return a > b ? a : b;
+}
+int maxArea(int* height, int heightSize) {
+    int left = 0;
+    int right = heightSize - 1;
+    int ret = INT_MIN;
+    while (left < right) {
+        int min_height = min(height[left], height[right]);
+        ret = max(ret, min_height * (right - left));
+        if (height[left] > height[right]) {
+            right--;
+        } else {
+            left++;
+        }
+    }
+    return ret;
+}
+</code>
+        </pre>
+        </div>
+
+        <!-- Write Your Article Section -->
+        <div class="form-section">
+            <h2>Write Your Article</h2>
+            <textarea id="article"
+                placeholder="Write your article here..."></textarea>
+        </div>
+
+        <!-- Write Your Code Section -->
+        <div class="form-section">
+            <h2>Write Code</h2>
+            <textarea id="code"
+                placeholder="Write your code snippet here..."></textarea>
+        </div>
+
+        <!-- Upload an Image Section -->
+        <div class="form-section">
+            <h2>Upload an Image</h2>
+            <input type="file" id="image">
+        </div>
+
+        <!-- Submit Button -->
+        <button id="submitBtn">Submit</button>
+
+        <script>
+        document.getElementById("submitBtn").addEventListener("click", async () => {
+            const article = document.getElementById("article").value.trim();
+            const code = document.getElementById("code").value.trim();
+            const imageFile = document.getElementById("image").files[0];
+
+            if (!article || !code) {
+                alert("Please fill out all fields!");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("article", article);
+            formData.append("code", code);
+            if (imageFile) {
+                formData.append("image", imageFile);
+            }
+
+            try {
+                const response = await fetch("http://localhost:3000/submit", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    alert("Content submitted successfully!");
+                    console.log(result);
+                } else {
+                    alert("Failed to submit content.");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("An error occurred while submitting content.");
+            }
+        });
+    </script>
+    </body>
+</html>
