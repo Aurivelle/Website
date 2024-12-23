@@ -8,9 +8,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-<<<<<<< HEAD
-  "description": ""
-=======
   "description": "",
   "dependencies": {
     "body-parser": "^1.20.3",
@@ -23,5 +20,4 @@
   "devDependencies": {
     "nodemon": "^3.1.9"
   }
->>>>>>> 67a9e88 (typesetting_and_structure_building)
 }
