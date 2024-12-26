@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>LeetCode Problems</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="assets/style.css">
         <script>
         document.addEventListener("DOMContentLoaded", () => {
             const commentsSection = document.getElementById("comments-section");
@@ -14,7 +14,7 @@
             // Fetch and render comments
             const fetchComments = async () => {
                 try {
-                    const response = await fetch("https://website-seven-omega-42.vercel.app/api/comments");
+                    const response = await fetch("/api/comments");
                     if (!response.ok) {
                         throw new Error("Failed to fetch comments.");
                     }
@@ -44,7 +44,7 @@
                 }
 
                 try {
-                    const response = await fetch("https://website-seven-omega-42.vercel.app/api/comments", {
+                    const response = await fetch("/api/comments", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ content }),
