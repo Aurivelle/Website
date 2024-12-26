@@ -14,7 +14,7 @@
             // Fetch and render comments
             const fetchComments = async () => {
                 try {
-                    const response = await fetch("/comments");
+                    const response = await fetch("https://website-seven-omega-42.vercel.app/api/comments");
                     if (!response.ok) {
                         throw new Error("Failed to fetch comments.");
                     }
@@ -44,7 +44,7 @@
                 }
 
                 try {
-                    const response = await fetch("/comments", {
+                    const response = await fetch("https://website-seven-omega-42.vercel.app/api/comments", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ content }),
