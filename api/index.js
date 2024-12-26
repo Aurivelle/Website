@@ -12,25 +12,24 @@ const fs = require("fs");
 const path = require("path");
 
 const app = express();
-const COMMENTS_FILE = path.join(__dirname, "../comments.json");
+const COMMENTS_FILE = path.join(__dirname, "api/comments.json");
 
 app.use(express.json());
 
-// 確認 comments.json 文件存在並可讀寫
-if (!fs.existsSync(COMMENTS_FILE)) {
-  console.error(`Error: File not found at ${COMMENTS_FILE}`);
-  process.exit(1);
-}
-
+// 初始化 comments.json
 try {
+  if (!fs.existsSync(COMMENTS_FILE)) {
+    console.warn(`${COMMENTS_FILE} not found. Creating a new one.`);
+    fs.writeFileSync(COMMENTS_FILE, JSON.stringify([])); // 建立空文件
+  }
   fs.accessSync(COMMENTS_FILE, fs.constants.R_OK | fs.constants.W_OK);
 } catch (err) {
-  console.error(`Error: No read/write access to ${COMMENTS_FILE}`, err);
+  console.error(`Error accessing ${COMMENTS_FILE}:`, err);
   process.exit(1);
 }
 
 // Fetch comments
-app.get("/comments", (req, res) => {
+app.get("/api/comments", (req, res) => {
   try {
     console.log("Fetching comments from", COMMENTS_FILE);
     const comments = JSON.parse(fs.readFileSync(COMMENTS_FILE, "utf8"));
@@ -42,7 +41,7 @@ app.get("/comments", (req, res) => {
 });
 
 // Post a comment
-app.post("/comments", (req, res) => {
+app.post("/api/comments", (req, res) => {
   const { content } = req.body;
   if (!content) {
     console.error("Error: Content is required in the request body");
