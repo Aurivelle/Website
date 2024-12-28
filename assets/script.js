@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const recentUpdates = document.getElementById("recent-updates");
   const updates = [
     { type: "Problem", title: "Problem 11: Container with Most Water" },
-    { type: "Paper", title: "Paper: Deep Learning for NLP" },
   ];
 
   updates.forEach((update) => {
