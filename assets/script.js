@@ -1,30 +1,56 @@
-// 等待 DOM 加載完成後執行
 document.addEventListener("DOMContentLoaded", () => {
-  // 動態更新 Recent Updates
   const recentUpdates = document.getElementById("recent-updates");
   const updates = [
-    { type: "Problem", title: "Problem 11: Container with Most Water" },
+    {
+      type: "Problem",
+      title: "Problem 11: Container with Most Water",
+      link: "11.html",
+    },
   ];
-
   updates.forEach((update) => {
     const li = document.createElement("li");
-    li.textContent = `${update.type}: ${update.title}`;
+    li.innerHTML = `<a href="${update.link}">${update.title}</a>`;
     recentUpdates.appendChild(li);
   });
 
-  // 搜索功能
+  const topics = [{ name: "LeetCode Problem 11", link: "11.html" }];
   const searchInput = document.getElementById("search");
-  const searchButton = document.getElementById("search-btn");
-  searchButton.addEventListener("click", () => {
-    const query = searchInput.value.trim().toLowerCase();
-    if (query) {
-      alert(`You searched for: ${query}`);
-    } else {
-      alert("Please enter a search query!");
+  const searchResults = document.createElement("ul");
+  searchResults.id = "search-results";
+  searchInput.parentElement.appendChild(searchResults);
+
+  // 輸入框的即時篩選功能
+  searchInput.addEventListener("input", (e) => {
+    const query = e.target.value.toLowerCase();
+    const results = topics.filter(
+      (topic) => topic.name.toLowerCase().includes(query) // 使用 topic.name
+    );
+
+    // 生成搜尋結果
+    searchResults.innerHTML = results
+      .map((r) => `<li><a href="${r.link}" target="_blank">${r.name}</a></li>`) // 顯示超連結
+      .join("");
+
+    if (results.length === 0) {
+      searchResults.innerHTML = "<li>No results found</li>";
     }
   });
 
-  // 滾動進度條
+  // 搜尋按鈕的跳轉功能
+  const searchButton = document.getElementById("search-btn");
+  searchButton.addEventListener("click", () => {
+    const query = searchInput.value.trim().toLowerCase();
+    const result = topics.find((topic) =>
+      topic.name.toLowerCase().includes(query)
+    );
+
+    if (result) {
+      window.location.href = result.link; // 跳轉到匹配的頁面
+    } else {
+      alert("No matching result found.");
+    }
+  });
+
   window.onscroll = () => {
     const scrollTop = document.documentElement.scrollTop;
     const scrollHeight =
@@ -34,14 +60,24 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("progress-bar").style.width = progress + "%";
   };
 
-  // 動態插入進度條樣式
   document.body.insertAdjacentHTML(
     "afterbegin",
-    `<div id="progress-container"><div id="progress-bar"></div></div>`
+    `<div id="progress-container" style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #f3f3f3;">
+      <div id="progress-bar" style="
+      height: 100%;
+      width: 0;
+      background: #007bff;
+      transition: width 0.1s;"></div>
+    </div>`
   );
 });
 
-// 添加進度條的 CSS
 const style = document.createElement("style");
 style.innerHTML = `
   #progress-container {
