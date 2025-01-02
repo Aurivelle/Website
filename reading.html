@@ -5,66 +5,129 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Learning Materials</title>
         <link rel="stylesheet" href="assets/style.css">
+        <link rel="icon" href="assets/icon.jpg">
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            rel="stylesheet">
     </head>
     <body>
+        <!-- Header Section -->
+        <header class="hero">
+            <h1>Learning Materials</h1>
+        </header>
+
+        <!-- Main Container -->
         <div class="container">
+            <!-- Sidebar -->
             <aside>
-                <h1>Learning Materials</h1>
+                <img src="assets/cat.jpeg" alt="Cat's Algorithm Logo"
+                    class="logo">
+                <h1>Cat's Algorithm</h1>
                 <nav>
-                    <a href="index.html">返回首頁</a>
+                    <a href="index.html" class="homepage-link">HomePage</a>
+                    <a href="Me.html">About Me</a>
                     <a href="leetcode.html">LeetCode Problems</a>
                     <a href="papers.html">Papers</a>
+                    <a href="template.html">Code Template</a>
                 </nav>
+                <div class="social-media">
+                    <a
+                        href="https://www.linkedin.com/in/%E8%BF%B0%E5%AE%87-%E5%90%B3-44a1b22b0/"
+                        target="_blank" class="linkedin">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/Aurivelle?tab=repositories"
+                        target="_blank" class="github">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
             </aside>
 
+            <!-- Main Content -->
             <main>
-                <h2>Recommended Learning Materials</h2>
-                <ul id="materials-list">
-                    <li><a href="https://developer.mozilla.org/en-US/"
-                            target="_blank">MDN Web Docs</a></li>
-                    <li><a href="https://www.w3schools.com/"
-                            target="_blank">W3Schools</a></li>
-                    <li><a href="https://www.geeksforgeeks.org/"
-                            target="_blank">GeeksforGeeks</a></li>
-                </ul>
+                <!-- Recommended Materials Section -->
+                <section class="materials-section">
+                    <h2>Recommended Learning Materials</h2>
+                    <ul id="materials-list" class="materials-list">
+                    </ul>
+                </section>
+                <hr />
 
-                <h3>Add New Material</h3>
-                <form id="add-material-form">
-                    <input type="text" id="material-name"
-                        placeholder="Material Name" required />
-                    <input type="url" id="material-url"
-                        placeholder="Material URL" required />
-                    <button type="submit">Add Material</button>
-                </form>
+                <!-- Add New Material Section -->
+                <section class="add-material-section">
+                    <h3>Add New Material</h3>
+                    <form id="add-material-form" class="material-form">
+                        <div class="form-group">
+                            <label for="material-name">Material Name</label>
+                            <input type="text" id="material-name"
+                                placeholder="Enter the material name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="material-url">Material URL</label>
+                            <input type="url" id="material-url"
+                                placeholder="Enter the material URL" required>
+                        </div>
+                        <button type="submit" class="submit-button">Add
+                            Material</button>
+                    </form>
+                    <div id="added-materials">
+                        <h4>Added Materials</h4>
+                        <ul id="added-materials-list"
+                            class="materials-list"></ul>
+                    </div>
+                </section>
             </main>
         </div>
 
+        <!-- Footer -->
+        <footer>
+            <div class="footer-container">
+                <p>© 2025 My Website</p>
+                <p>Contact: <a
+                        href="mailto:b12902036@csie.ntu.edu.tw">b12902036@csie.ntu.edu.tw</a></p>
+                <div class="social-links">
+                    <a
+                        href="https://www.linkedin.com/in/%E8%BF%B0%E5%AE%87-%E5%90%B3-44a1b22b0/"
+                        target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Aurivelle?tab=repositories"
+                        target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- JavaScript -->
         <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const materialForm = document.getElementById("add-material-form");
-            const materialsList = document.getElementById("materials-list");
+            document.addEventListener("DOMContentLoaded", () => {
+                const form = document.getElementById("add-material-form");
+                const materialsList = document.getElementById("added-materials-list");
 
-            // Handle form submission to add new learning materials
-            materialForm.addEventListener("submit", (event) => {
-                event.preventDefault();
+                // Add Material Form Submission
+                form.addEventListener("submit", (e) => {
+                    e.preventDefault(); // Prevent page refresh
 
-                const name = document.getElementById("material-name").value.trim();
-                const url = document.getElementById("material-url").value.trim();
+                    const name = document.getElementById("material-name").value.trim();
+                    const url = document.getElementById("material-url").value.trim();
 
-                if (!name || !url) {
-                    alert("Please fill in both fields.");
-                    return;
+                    if (!name || !url) {
+                        alert("Please provide both a name and a valid URL.");
+                        return;
+                    }
+
+                    addMaterial(name, url);
+                    form.reset(); // Clear form inputs
+                });
+
+                // Add Material to List
+                function addMaterial(name, url) {
+                    const li = document.createElement("li");
+                    li.innerHTML = `<a href="${url}" target="_blank">${name}</a>`;
+                    materialsList.appendChild(li);
                 }
-
-                const newMaterial = document.createElement("li");
-                newMaterial.innerHTML = `<a href="${url}" target="_blank">${name}</a>`;
-                materialsList.appendChild(newMaterial);
-
-                // Clear input fields
-                document.getElementById("material-name").value = "";
-                document.getElementById("material-url").value = "";
             });
-        });
-    </script>
+        </script>
     </body>
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,196 +10,117 @@
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
         <script>
         document.addEventListener("DOMContentLoaded", () => {
-            hljs.highlightAll(); // 初始化程式碼高亮
+            hljs.highlightAll(); // Initialize code highlighting
         });
     </script>
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dracula.min.css">
-
-        <!-- CSS Style -->
-        <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
-            color: #333;
-        }
-
-        h1, h2, h3 {
-            text-align: center;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-        }
-
-        button {
-            display: block;
-            width: 100%;
-            max-width: 200px;
-            margin: 20px auto;
-            padding: 10px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        pre {
-            background-color: #333; /* 黑底 */
-            padding: 20px;
-            border-radius: 10px;
-            overflow-x: auto;
-            font-size: 14px;
-            border: 1px solid #444;
-            margin-bottom: 20px;
-        }
-
-        code {
-            color: #fff;
-        }
-
-        .explanation, .section, .form-section {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .explanation h2 {
-            color: #ffd700; /* 金黃色標題 */
-        }
-
-        textarea, input[type="file"] {
-            width: 100%;
-            max-width: 600px;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            resize: none;
-        }
-
-        .form-section textarea {
-            height: 80px;
-        }
-    </style>
+        <link rel="stylesheet" href="assets/style.css">
+        <link rel="icon" href="assets/icon.jpg">
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+            rel="stylesheet">
     </head>
+
     <body>
-        <h1>11. Container with Most Water</h1>
+        <!-- Header Section -->
+        <header class="hero">
+            <h1>11. Container with Most Water</h1>
+        </header>
 
-        <!-- Explanation Section -->
-        <div class="explanation">
-            <h2>About the Problem</h2>
-            <p>
-                This is a medium-level problem called
-                "Container with Most Water." The goal is to find the maximum
-                amount of water that can be contained between two vertical
-                lines.
-            </p>
-        </div>
+        <!-- Main Container -->
+        <div class="container">
+            <!-- Sidebar -->
+            <aside>
+                <img src="assets/cat.jpeg" alt="Cat's Algorithm Logo"
+                    class="logo">
+                <h1>Cat's Algorithm</h1>
+                <nav>
+                    <a href="index.html" class="homepage-link">HomePage</a>
+                    <a href="Me.html">About Me</a>
+                    <a href="leetcode.html">LeetCode Problems</a>
+                    <a href="papers.html">Papers</a>
+                    <a href="reading.html">Reading Materials</a>
+                    <a href="template.html">Code Template</a>
+                </nav>
+                <div class="social-media">
+                    <a href="https://www.linkedin.com/" target="_blank"
+                        class="linkedin">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/" target="_blank"
+                        class="github">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </aside>
 
-        <!-- Code Snippet Section -->
-        <div class="section">
-            <h2>Code Snippet</h2>
-            <pre>
-<code class="language-c">
-int min(int a, int b) {
-    return a < b ? a : b;
-}
-int max(int a, int b) {
-    return a > b ? a : b;
-}
-int maxArea(int* height, int heightSize) {
-    int left = 0;
-    int right = heightSize - 1;
-    int ret = INT_MIN;
-    while (left < right) {
-        int min_height = min(height[left], height[right]);
-        ret = max(ret, min_height * (right - left));
-        if (height[left] > height[right]) {
-            right--;
-        } else {
-            left++;
-        }
-    }
-    return ret;
-}
+            <!-- Main Content -->
+            <main>
+                <!-- Problem Description -->
+                <section class="problem-description">
+                    <h2>Problem Description</h2>
+                    <div class="markdown-container">
+                        <!-- Markdown Rendered Content -->
+                        <div id="markdown-content">
+                            <p>
+                                Given <code>n</code> non-negative integers
+                                <code>a<sub>1</sub>, a<sub>2</sub>, ...,
+                                    a<sub>n</sub></code>,
+                                where each represents a point at coordinate
+                                <code>(i, a<sub>i</sub>)</code>.
+                                <code>n</code> vertical lines are drawn such
+                                that the two endpoints of the line
+                                <code>i</code> are at <code>(i,
+                                    a<sub>i</sub>)</code> and <code>(i,
+                                    0)</code>. Find two lines,
+                                which, together with the x-axis, form a
+                                container such that the container contains the
+                                most water.
+                            </p>
+                            <p><strong>Notice:</strong> You may not slant the
+                                container.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Example Section -->
+                <section class="example-section">
+                    <h2>Example</h2>
+                    <pre class="code-template">
+<code class="language-javascript">
+Input: height = [1,8,6,2,5,4,8,3,7]
+Output: 49
+Explanation: The vertical lines are drawn at indices 1 and 8.
+The area of water the container can contain is calculated as:
+Area = min(height[1], height[8]) * (8 - 1) = 7 * 7 = 49.
 </code>
-        </pre>
+                </pre>
+                </section>
+            </main>
         </div>
 
-        <!-- Write Your Article Section -->
-        <div class="form-section">
-            <h2>Write Your Article</h2>
-            <textarea id="article"
-                placeholder="Write your article here..."></textarea>
-        </div>
-
-        <!-- Write Your Code Section -->
-        <div class="form-section">
-            <h2>Write Code</h2>
-            <textarea id="code"
-                placeholder="Write your code snippet here..."></textarea>
-        </div>
-
-        <!-- Upload an Image Section -->
-        <div class="form-section">
-            <h2>Upload an Image</h2>
-            <input type="file" id="image">
-        </div>
-
-        <!-- Submit Button -->
-        <button id="submitBtn">Submit</button>
-
-        <script>
-        document.getElementById("submitBtn").addEventListener("click", async () => {
-            const article = document.getElementById("article").value.trim();
-            const code = document.getElementById("code").value.trim();
-            const imageFile = document.getElementById("image").files[0];
-
-            if (!article || !code) {
-                alert("Please fill out all fields!");
-                return;
-            }
-
-            const formData = new FormData();
-            formData.append("article", article);
-            formData.append("code", code);
-            if (imageFile) {
-                formData.append("image", imageFile);
-            }
-
-            try {
-                const response = await fetch("http://localhost:3000/submit", {
-                    method: "POST",
-                    body: formData,
-                });
-
-                if (response.ok) {
-                    const result = await response.json();
-                    alert("Content submitted successfully!");
-                    console.log(result);
-                } else {
-                    alert("Failed to submit content.");
-                }
-            } catch (error) {
-                console.error("Error:", error);
-                alert("An error occurred while submitting content.");
-            }
-        });
-    </script>
+        <!-- Footer -->
+        <footer>
+            <div class="footer-container">
+                <p>© 2025 My Website</p>
+                <p>Contact: <a
+                        href="mailto:b12902036@csie.ntu.edu.tw">b12902036@csie.ntu.edu.tw</a></p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/" target="_blank"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/" target="_blank"
+                        aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
     </body>
+
 </html>

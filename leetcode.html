@@ -5,187 +5,85 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>LeetCode Problems</title>
         <link rel="stylesheet" href="assets/style.css">
-        <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const commentsSection = document.getElementById("comments-section");
-            const commentInput = document.getElementById("comment-input");
-            const submitCommentButton = document.getElementById("submit-comment");
-
-            // Fetch and render comments
-            const fetchComments = async () => {
-                try {
-                    const response = await fetch("/api/comments");
-                    if (!response.ok) {
-                        throw new Error("Failed to fetch comments.");
-                    }
-                    const comments = await response.json();
-                    commentsSection.innerHTML = comments
-                        .map(
-                            (comment) => `
-                            <div class="comment">
-                                <strong>${comment.username}</strong> 
-                                <small>${new Date(comment.timestamp).toLocaleString()}</small>
-                                <p>${comment.content}</p>
-                            </div>`
-                        )
-                        .join("");
-                } catch (error) {
-                    console.error("Error fetching comments:", error);
-                    commentsSection.innerHTML = `<p>Unable to load comments. Please try again later.</p>`;
-                }
-            };
-
-            // Submit a comment
-            submitCommentButton.addEventListener("click", async () => {
-                const content = commentInput.value.trim();
-                if (!content) {
-                    alert("Please write a comment!");
-                    return;
-                }
-
-                try {
-                    const response = await fetch("/api/comments", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ content }),
-                    });
-                    if (!response.ok) {
-                        throw new Error("Failed to submit comment.");
-                    }
-                    commentInput.value = ""; // Clear input
-                    fetchComments(); // Reload comments
-                } catch (error) {
-                    console.error("Error submitting comment:", error);
-                    alert("Failed to submit comment. Please try again.");
-                }
-            });
-
-            // Initialize: Fetch comments on page load
-            fetchComments();
-        });
-    </script>
-        <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-
-        h1, h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        nav {
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        nav p {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        nav a {
-            display: inline-block;
-            margin: 10px 0;
-            text-decoration: none;
-            color: #007bff;
-            font-size: 16px;
-            border: 1px solid #007bff;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        nav a:hover {
-            background-color: #007bff;
-            color: white;
-        }
-
-        #comments-section {
-            margin-top: 20px;
-            border-top: 1px solid #ddd;
-            padding-top: 10px;
-        }
-
-        .comment {
-            margin-bottom: 15px;
-            padding: 10px;
-            background-color: #f4f4f4;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-
-        .comment strong {
-            color: #007bff;
-        }
-
-        textarea#comment-input {
-            width: 100%;
-            max-width: 600px;
-            height: 80px;
-            margin-top: 20px;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            resize: none;
-        }
-
-        button#submit-comment {
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-
-        button#submit-comment:hover {
-            background-color: #0056b3;
-        }
-
-        .homepage-link {
-            display: block;
-            text-align: center;
-            margin-top: 30px;
-            text-decoration: none;
-            color: #007bff;
-            font-size: 16px;
-        }
-
-        .homepage-link:hover {
-            text-decoration: underline;
-        }
-    </style>
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            rel="stylesheet">
+        <link rel="icon" href="assets/icon.jpg">
     </head>
     <body>
-        <h1>LeetCode Problems</h1>
+        <header class="hero">
+            <h1>LeetCode Problems</h1>
+        </header>
+        <div class="container">
+            <!-- Sidebar -->
+            <aside>
+                <img src="assets/cat.jpeg" alt="Cat's Algorithm Logo"
+                    class="logo">
+                <h1>Cat's Algorithm</h1>
+                <nav>
+                    <a href="index.html" class="homepage-link">HomePage</a>
+                    <a href="Me.html">About Me</a>
+                    <a href="papers.html">Papers</a>
+                    <a href="reading.html">Reading Materials</a>
+                    <a href="template.html">Code Template</a>
+                </nav>
+                <div class="social-media">
+                    <a
+                        href="https://www.linkedin.com/in/%E8%BF%B0%E5%AE%87-%E5%90%B3-44a1b22b0/"
+                        target="_blank" class="linkedin">
+                        <i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/Aurivelle?tab=repositories"
+                        target="_blank" class="github">
+                        <i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </aside>
 
-        <!-- Problem List -->
-        <nav>
-            <p>Day 1 - Problem 1</p>
-            <a href="11.html">11. Container with Most Water</a>
-        </nav>
+            <!-- Main Content -->
+            <main>
+                <section class="problems">
+                    <h2>LeetCode Problems I've Done</h2>
+                    <div class="problem-cards">
+                        <div class="card">
+                            <a href="11.html">
+                                <h3>Problem 11</h3>
+                                <p>Container with Most Water</p>
+                            </a>
+                        </div>
+                    </div>
+                </section>
 
-        <!-- Comments Section -->
-        <h2>Comments</h2>
-        <div id="comments-section">
-            <!-- Comments will be loaded dynamically -->
+                <!-- Comments Section -->
+                <section class="comments">
+                    <h2>Comments</h2>
+                    <div id="comments-list">
+                        <p>No comments yet. Be the first to comment!</p>
+                    </div>
+                    <textarea id="comment-input"
+                        placeholder="Write a comment..."></textarea>
+                    <button id="submit-comment">Submit Comment</button>
+                </section>
+            </main>
         </div>
-
-        <!-- Comment Input -->
-        <textarea id="comment-input"
-            placeholder="Write a comment..."></textarea>
-        <button id="submit-comment">Submit</button>
-
-        <!-- Back to Home Link -->
-        <a href="index.html" class="homepage-link">HomePage</a>
+        <footer>
+            <div class="footer-container">
+                <p>© 2025 My Website</p>
+                <p>
+                    Contact: <a
+                        href="mailto:b12902036@csie.ntu.edu.tw">b12902036@csie.ntu.edu.tw</a>
+                </p>
+                <div class="social-links">
+                    <a
+                        href="https://www.linkedin.com/in/%E8%BF%B0%E5%AE%87-%E5%90%B3-44a1b22b0/"
+                        target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Aurivelle?tab=repositories"
+                        target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
         <script src="assets/script.js"></script>
-        <script src="assets/leetcode.js"></script>
     </body>
 </html>

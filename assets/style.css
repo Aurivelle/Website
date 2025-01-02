@@ -101,6 +101,88 @@ main p, main li {
     text-align: center;
 }
 
+.introduction {
+    max-width: 800px;
+    margin: 40px auto;
+    /* 與其他區域保持良好的間距 */
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    /* 圓角更顯柔和 */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease;
+    /* 動畫進入效果 */
+}
+
+/* 各 Section 區塊樣式 */
+.introduction section {
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 標題樣式 */
+.introduction h2 {
+    text-align: center;
+    font-size: 30px;
+    color: #007bff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    /* 全大寫，讓標題更有設計感 */
+    letter-spacing: 1px;
+}
+
+.introduction h3 {
+    font-size: 24px;
+    color: #0056b3;
+    margin-bottom: 15px;
+}
+
+/* 段落樣式 */
+.introduction p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+    text-align: justify;
+    /* 將文字對齊兩側 */
+}
+
+/* 列表樣式 */
+.introduction ul {
+    list-style-type: circle;
+    padding-left: 20px;
+    margin: 15px 0;
+}
+
+.introduction ul li {
+    list-style: none;
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* 加入平滑的 hover 效果 */
+.introduction section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* 動畫效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 
 .welcome, .updates, .search, .challenge, .statistics, #notifications {
     background-color: white;
@@ -285,4 +367,613 @@ footer {
 .footer-container a:hover {
     color: #007bff;
     text-decoration: underline;
+}
+
+/* 問題區塊樣式 */
+.problems {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.problems h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* 問題卡片容器 */
+.problem-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+/* 單一卡片樣式 */
+.card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+    padding: 20px;
+    width: 200px;
+}
+
+.card a {
+    text-decoration: none;
+    color: #333;
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #0056b3;
+}
+
+.card p {
+    font-size: 14px;
+    color: #555;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.comments {
+    margin-top: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.comments h2 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+#comments-list {
+    margin-bottom: 20px;
+    max-height: 400px;
+    /* 增加高度 */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#comments-list p {
+    color: #555;
+}
+
+textarea#comment-input {
+    width: 100%;
+    height: 120px;
+    /* 增加高度 */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    font-size: 14px;
+    /* 增加字體大小 */
+}
+
+button#submit-comment {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    /* 增加按鈕高度 */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    /* 增加字體大小 */
+    cursor: pointer;
+}
+
+button#submit-comment:hover {
+    background-color: #0056b3;
+}
+
+.paper-form {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.paper-form .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.paper-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.paper-form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.paper-form input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+#added-papers {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#added-papers h4 {
+    margin-bottom: 10px;
+}
+
+#paper-list {
+    list-style: none;
+    padding: 0;
+}
+
+#paper-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Main section styles */
+.materials-section, .add-material-section {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+/* Headings */
+.materials-section h2, .add-material-section h3 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* List styles */
+.materials-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.materials-list li {
+    background-color: #f9f9f9;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect for list items */
+.materials-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Link styles inside list */
+.materials-list li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.materials-list li a:hover {
+    color: #007bff;
+}
+
+/* Form styles */
+.material-form {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.material-form .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.material-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.material-form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.material-form input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Button styles */
+.submit-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.submit-button:active {
+    background-color: #003d80;
+}
+
+/* Divider line styles */
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .materials-section, .add-material-section {
+        padding: 15px;
+    }
+
+    .materials-list li {
+        font-size: 14px;
+    }
+
+    .submit-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+/* 程式碼區域樣式 */
+pre.code-template {
+    background-color: #282a36;
+    /* 符合 Dracula 主題的背景色 */
+    color: #f8f8f2;
+    /* 字體顏色 */
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    overflow-x: auto;
+    /* 可滾動的水平區域 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    line-height: 1.5;
+}
+
+pre.code-template code {
+    font-family: "Courier New", Courier, monospace;
+}
+
+/* 程式碼區域的 hover 效果 */
+pre.code-template:hover {
+    transform: scale(1.02);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 程式碼行號樣式 (如果需要) */
+.hljs-ln-numbers {
+    text-align: right;
+    color: #6272a4;
+    /* 行號顏色 */
+    border-right: 1px solid #44475a;
+    padding-right: 10px;
+    margin-right: 10px;
+}
+
+/* 標題樣式調整 */
+.hero h1 {
+    font-size: 36px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #f8f8f2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 10px;
+}
+
+/* Example Section */
+.example-solution {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+.example-solution h2 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.example-solution pre {
+    overflow-x: auto;
+    background-color: #282a36;
+    padding: 15px;
+    border-radius: 10px;
+    color: #f8f8f2;
+    font-size: 14px;
+    line-height: 1.6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.code-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.code-buttons button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.code-buttons button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 1000;
+}
+
+#back-to-top:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+.problem-description {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.problem-description h2 {
+    font-size: 24px;
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.problem-description p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #222;
+    /* 加深字體顏色，對比更明顯 */
+    background-color: #f9f9f9;
+    /* 背景色保持一致 */
+    padding: 15px;
+    /* 增加內距，提升閱讀舒適度 */
+    border-left: 5px solid #007bff;
+    /* 更粗的左邊框，更顯眼 */
+    border-radius: 6px;
+    /* 輕微圓角 */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    /* 更柔和的陰影 */
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.problem-description code {
+    padding: 3px 7px;
+    /* 調整內距 */
+    border-radius: 5px;
+    /* 增加圓角 */
+    font-size: 14px;
+    font-family: "Courier New", Courier, monospace;
+    color: #d63384;
+    /* 顏色保持亮眼 */
+    background-color: #f1f3f5;
+    /* 更輕柔的背景色 */
+    border: 1px solid #dee2e6;
+    /* 添加細邊框 */
+}
+
+/* Example Section */
+.markdown-container {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.markdown-container p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.markdown-container code {
+    background-color: #e9ecef;
+    color: #d63384;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.example-section {
+    background-color: #f9f9f9;
+    /* 深色背景 */
+    color: #007bff;
+    /* 字體顏色調整為灰色 */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* 增加陰影 */
+    margin-top: 20px;
+    border: 1px solid #444444;
+    /* 添加細邊框 */
+}
+
+.example-section h3 {
+    font-size: 20px;
+    color: #fefefe;
+    /* 使用 VSCode 藍色風格 */
+    margin-bottom: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    /* 標題大寫 */
+    letter-spacing: 1px;
+    /* 增加字母間距 */
+}
+
+.example-section pre {
+    overflow-x: auto;
+    /* 支援水平滾動 */
+    background-color: #1e1e1e;
+    /* 與外層背景一致 */
+    padding: 20px;
+    border-radius: 10px;
+    color: #dcdcdc;
+    /* 字體顏色 */
+    font-size: 14px;
+    line-height: 1.6;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* 增加內陰影 */
+    border: 1px solid #3c3c3c;
+    /* 內部邊框 */
+    margin-bottom: 15px;
+    /* 增加段落間距 */
+}
+
+.example-section pre code {
+    font-family: "Courier New", Courier, monospace;
+    /* 固定寬度字體 */
+    color: #fefefe;
+    /* 關鍵字顏色 */
+    display: block;
+    /* 確保每行程式碼對齊 */
+}
+
+.example-section pre code .comment {
+    color: #6a9955;
+    /* 註解顏色，綠色風格 */
+    font-style: italic;
+    /* 傾斜以區分 */
+}
+
+.example-section pre code .keyword {
+    color: #c586c0;
+    /* 關鍵字顏色，紫色風格 */
+}
+
+.example-section pre code .number {
+    color: #b5cea8;
+    /* 數字顏色 */
+}
+
+.code-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    /* 按鈕之間的間距 */
+}
+
+.code-buttons button {
+    background-color: #007acc;
+    /* 淺藍色按鈕背景 */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.code-buttons button:hover {
+    background-color: #005a9e;
+    /* 深藍色 hover 效果 */
+    transform: scale(1.05);
+}
+
+.code-buttons button:active {
+    background-color: #003d6b;
+    /* 點擊時更深的藍色 */
 }
