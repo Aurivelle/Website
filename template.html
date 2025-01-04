@@ -4,11 +4,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Code Template</title>
+
+        <!-- CSS -->
         <link rel="stylesheet" href="./assets/style.css">
         <link rel="icon" href="assets/icon.jpg">
         <link
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
             rel="stylesheet">
+
+        <!-- Highlight.js -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dracula.min.css">
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
     </head>
     <body>
         <!-- Header Section -->
@@ -31,13 +41,12 @@
                     <a href="reading.html">Reading Materials</a>
                 </nav>
                 <div class="social-media">
-                    <a
-                        href="https://www.linkedin.com/in/%E8%BF%B0%E5%AE%87-%E5%90%B3-44a1b22b0/"
-                        target="_blank" class="linkedin">
+                    <a href="https://www.linkedin.com/" target="_blank"
+                        class="linkedin">
                         <i class="fab fa-linkedin"></i> LinkedIn
                     </a>
-                    <a href="https://github.com/Aurivelle?tab=repositories"
-                        target="_blank" class="github">
+                    <a href="https://github.com/" target="_blank"
+                        class="github">
                         <i class="fab fa-github"></i> GitHub
                     </a>
                 </div>
@@ -45,12 +54,36 @@
 
             <!-- Main Content -->
             <main>
+                <!-- Topics Section -->
                 <section class="problems">
                     <h2>Topics</h2>
                     <div class="problem-cards">
-                        <div class="card">
+                        <div class="card" data-topic="template1">
+                            <h3>BFS</h3>
+                            <p>Typical BFS Template of Graph and Tree</p>
+                        </div>
+                        <div class="card" data-topic="template2">
+                            <h3>Heap</h3>
+                            <p>Typical Heap Construction Template</p>
+                        </div>
+                        <div class="card" data-topic="template3">
+                            <h3>DFS</h3>
+                            <p>Typical DFS Template of Iteration and
+                                Recursion</p>
+                        </div>
+                        <div class="card" data-topic>
+                            <h3></h3>
+                            <p></p>
                         </div>
                     </div>
+                </section>
+
+                <!-- Dynamic Content Section -->
+                <section id="topic-content" class="hidden">
+                    <h2 id="topic-title">Topic Title</h2>
+                    <div id="topic-body">Topic content will be loaded
+                        here...</div>
+                    <button onclick="backToTopics()">Back to Topics</button>
                 </section>
             </main>
         </div>
@@ -62,17 +95,381 @@
                 <p>Contact: <a
                         href="mailto:b12902036@csie.ntu.edu.tw">b12902036@csie.ntu.edu.tw</a></p>
                 <div class="social-links">
-                    <a
-                        href="https://www.linkedin.com/in/%E8%BF%B0%E5%AE%87-%E5%90%B3-44a1b22b0/"
-                        target="_blank" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/" target="_blank"
+                        aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://github.com/Aurivelle?tab=repositories"
-                        target="_blank" aria-label="GitHub">
+                    <a href="https://github.com/" target="_blank"
+                        aria-label="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
                 </div>
             </div>
         </footer>
+
+        <!-- Script Section -->
+        <script>
+        // 定義每個 Topic 的內容
+        const topics = {
+            template1: {
+                title: "BFS",
+                content: `
+                    <p>Breadth-First Search (BFS) is a graph traversal algorithm that explores all the nodes at the current depth level before moving on to the next depth level. Starting from a given source node, it visits all its neighbors first, then their unvisited neighbors, and so on. BFS uses a queue to keep track of the nodes to be visited and ensures that each node is visited only once. It is commonly used to find the shortest path in an unweighted graph, detect connected components, and solve problems like maze exploration, social network analysis, and web crawling.</p>
+                    <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+typedef struct Node 
+{
+    int val;
+    struct Node** neighbors;  // Graph
+    int neighborCount;        // Graph
+    struct Node* left;        // Tree
+    struct Node* right;       // Tree
+} Node;
+
+// 定義佇列結構
+typedef struct Queue 
+{
+    Node** data;  
+    int front;    
+    int rear;     
+    int capacity; 
+} Queue;
+
+Queue* createQueue(int capacity) 
+{
+    Queue* queue = (Queue*)malloc(sizeof(Queue));
+    queue->data = (Node**)malloc(sizeof(Node*) * capacity);
+    queue->front = 0;
+    queue->rear = 0;
+    queue->capacity = capacity;
+    return queue;
+}
+
+void expandQueue(Queue* queue) 
+{
+    queue->capacity *= 2;
+    queue->data = (Node**)realloc(queue->data, sizeof(Node*) * queue->capacity);
+    if (!queue->data) 
+    {
+        perror("Memory allocation failed");
+        exit(EXIT_FAILURE);
+    }
+}
+
+void enqueue(Queue* queue, Node* node) 
+{
+    if (queue->rear >= queue->capacity) 
+    {
+        expandQueue(queue);
+    }
+    queue->data[queue->rear++] = node;
+}
+
+
+Node* dequeue(Queue* queue) 
+{
+    if (queue->front == queue->rear) 
+    {
+        return NULL;  
+    }
+    return queue->data[queue->front++];
+}
+
+int isQueueEmpty(Queue* queue) 
+{
+    return queue->front == queue->rear;
+}
+
+void BFS(Node* start) 
+{
+    if (!start) return;
+
+
+    int initialCapacity = 16;
+    Queue* queue = createQueue(initialCapacity);
+    enqueue(queue, start);
+
+    int visited[1000] = {0};
+    visited[start->val] = 1;
+
+    while (!isQueueEmpty(queue)) 
+    {
+        Node* current = dequeue(queue);
+
+        printf("Visited node: %d\\n", current->val);
+
+        for (int i = 0; i < current->neighborCount; i++) // graph
+        {
+            Node* neighbor = current->neighbors[i];
+            if (!visited[neighbor->val]) 
+            {
+                enqueue(queue, neighbor);
+                visited[neighbor->val] = 1;
+            }
+        }
+
+        // tree
+        if (current->left) 
+        {
+            enqueue(queue, current->left);
+        }
+        if (current->right) 
+        {
+            enqueue(queue, current->right);
+        }
+    }
+    free(queue->data);
+    free(queue);
+}</code></pre>
+                `
+            },
+            template2: {
+                title: "Heap",
+                content: `
+                    <p>Heap is a specialized binary tree data structure that satisfies the heap property, meaning the parent node is always greater than or equal to (in a max-heap) or less than or equal to (in a min-heap) its child nodes.
+
+In a max-heap, the root node has the largest value, while in a min-heap, the root node has the smallest value. Heaps are commonly used to implement priority queues, Dijkstra's algorithm, sorting algorithms (like heap sort), and scheduling systems. The key operations in a heap include insertion, deletion, and heapify, all of which can be done efficiently in O(log n) time.</p>
+                    <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;limits.h&gt;
+typedef struct
+{
+    int* array;
+    int size;
+    int capacity;
+}MaxHeap;
+
+MaxHeap* createHeap(int capacity)
+{
+    MaxHeap* heap = (MaxHeap*)malloc(sizeof(MaxHeap));
+    heap->size = 0;
+    heap->capacity = capacity;
+    heap->array = (int*)malloc(sizeof(int) * capacity);
+    return heap;
+}
+
+void siftUp(MaxHeap* heap, int idx)
+{
+    int parent = (idx - 1) / 2;
+    while(idx > 0 && heap->array[idx] > heap->array[parent])
+    {
+        int temp = heap->array[idx];
+        heap->array[idx] = heap->array[parent];
+        heap->array[parent] = temp;
+        
+        idx = parent;
+        parent = (idx - 1) / 2;
+    }
+}
+
+void insert(MaxHeap* heap, int value)
+{
+    if(heap->size == heap->capacity)
+    {
+        return;
+    }
+    heap->array[heap->size] = value;
+    heap->size++;
+    siftUp(heap, heap->size - 1);
+}
+
+void siftDown(MaxHeap* heap, int idx)
+{   
+    int largest = idx;
+    int left = 2 * idx + 1;
+    int right = 2 * idx + 2;
+    
+    if(left < heap->size && heap->array[left] > heap->array[largest])
+    {
+        largest = left;
+    }
+    if(right < heap->size && heap->array[right] > heap->array[largest])
+    {
+        largest = right;
+    }
+    if(largest != idx)
+    {
+        int temp = heap->array[idx];
+        heap->array[idx] = heap->array[largest];
+        heap->array[largest] = temp;
+        
+        siftDown(heap, largest);
+    }
+}
+
+int extractMax(MaxHeap* heap)
+{
+    if(heap->size <= 0)
+    {
+        return INT_MIN;
+    }
+    
+    int max = heap->array[0];
+    heap->array[0] = heap->array[heap->size - 1];
+    heap->size--;
+    siftDown(heap, 0);
+    return max;
+}
+
+void printHeap(MaxHeap* heap)
+{
+    for(int i = 0; i < heap->size; i++)
+    {
+        printf("%d ", heap->array[i]);
+    }
+    printf("\\n");
+}</code></pre>
+                `
+            },
+            template3: {
+        title: "DFS",
+        content: `
+            <p>Depth-First Search (DFS) is a graph traversal algorithm that explores as far as possible along each branch before backtracking. It starts from a source node, explores one neighbor deeply until reaching a dead end, and then backtracks to explore other unvisited neighbors. DFS can be implemented using a stack (explicit or via recursion). It is commonly used for cycle detection, topological sorting, pathfinding, and solving puzzle-like problems (e.g., maze solving or Sudoku). Unlike BFS, DFS may not always find the shortest path but is more memory efficient in deep graphs.</p>
+            <pre><code class="language-c">typedef struct Node
+{
+    int vertex;
+    struct Node* next;
+} Node;
+
+typedef struct Graph
+{
+    int numVertices;
+    Node** adjLists;
+    int* visited;
+} Graph;
+
+Graph* createGraph(int vertices)
+{
+    Graph* graph = (Graph*)malloc(sizeof(Graph));
+    graph->numVertices = vertices;
+    graph->adjLists = (Node**)malloc(sizeof(Node*) * vertices);
+    graph->visited = (int*)malloc(sizeof(int) * vertices);
+    for(int i = 0; i < vertices; i++)
+    {
+        graph->adjLists[i] = NULL;
+        graph->visited[i] = 0;
+    }
+    return graph;
+}
+
+void addEdge(Graph* graph, int src, int dest)
+{
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->vertex = dest;
+    newNode->next = graph->adjLists[src];
+    graph->adjLists[src] = newNode;
+}
+
+void dfsRecursive(Graph* graph, int vertex)
+{
+    graph->visited[vertex] = 1;
+    
+    Node* temp = graph->adjLists[vertex];
+    while(temp)
+    {
+        int connectedVertex = temp->vertex;
+        if(!graph->visited[connectedVertex])
+        {
+            dfsRecursive(graph, connectedVertex);
+        }
+        temp = temp->next;
+    }
+}
+
+#define STACK_MAX 100
+typedef struct
+{
+    int items[STACK_MAX];
+    int top;
+}Stack;
+
+void push(Stack* stack, int value)
+{
+    if(stack->top == MAX - 1)
+    {
+        return;
+    }
+    stack->items[++stack->top] = value;
+}
+
+int pop(Stack* stack)
+{
+    if(stack->top == -1)
+    {
+        return;
+    }
+    return stack->items[stack->top--];
+}
+
+int isEmpty(Stack* stack)
+{
+    return stack->top == -1;
+}
+
+void dfsIterative(Graph* graph, int startVertex)
+{
+    Stack stack;
+    stack.top = -1;
+    push(&stack, startVertex);
+    while(!isEmpty(&stack))
+    {
+        int vertex = pop(&stack);
+        if(!graph->visited[vertex])
+        {
+            graph->visited[vertex] = 1;
+        }
+        
+        Node* temp = graph->adjLists[vertex];
+        while(temp)
+        {
+            if(!graph->visited[vertex])
+            {
+                push(&stack, temp->vertex);
+            }
+            temp = temp->next;
+        }
+    }
+}</code></pre>
+        `,
+    },
+    template4:{title:"",content:``,},
+};
+        // 處理卡片點擊事件
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".card").forEach(card => {
+                card.addEventListener("click", () => {
+                    const topicKey = card.getAttribute("data-topic");
+                    loadTopicContent(topicKey);
+                });
+            });
+
+            hljs.highlightAll();
+        });
+
+        // 動態加載 Topic 的內容
+        function loadTopicContent(topicKey) {
+            const topic = topics[topicKey];
+            if (topic) {
+                document.getElementById("topic-title").innerText = topic.title;
+                document.getElementById("topic-body").innerHTML = topic.content;
+                document.querySelector(".problems").classList.add("hidden");
+                document.getElementById("topic-content").classList.remove("hidden");
+                document.querySelectorAll('#topic-body pre code').forEach((block) => {
+            hljs.highlightElement(block);
+        });
+
+                
+            }
+            
+        }
+
+        // 返回主頁的按鈕功能
+        function backToTopics() {
+            document.querySelector(".problems").classList.remove("hidden");
+            document.getElementById("topic-content").classList.add("hidden");
+        }
+    </script>
+
     </body>
 </html>
