@@ -1,24 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Code Template</title>
 
-        <!-- CSS -->
-        <link rel="stylesheet" href="./assets/style.css">
-        <link rel="icon" href="assets/icon.jpg">
+        <!-- 自訂 CSS 與 Icon -->
+        <link rel="stylesheet" href="./assets/style.css" />
+        <link rel="icon" href="assets/icon.jpg" />
+
+        <!-- Font Awesome -->
         <link
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-            rel="stylesheet">
+            rel="stylesheet" />
 
-        <!-- Highlight.js -->
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dracula.min.css">
+        <!-- Highlight.js (此處選擇 Dracula 主題) -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dracula.min.css" />
+
+        <!-- Highlight.js 主程式與 C語言支持 -->
         <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"
+            defer></script>
         <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"
+            defer></script>
+
+        <!-- Marked.js 轉換 Markdown 成 HTML -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"
+            defer></script>
+
+        <!-- MathJax 設定 (在載入 tex-mml-chtml 前) -->
+        <script>
+    window.MathJax = {
+      tex: {
+        // 配置 inlineMath，讓單一 $...$ 成為行內公式
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        // 雙美元符號作為顯示模式
+        displayMath: [['$$','$$'], ['\\[','\\]']]
+      }
+    };
+  </script>
+
+        <!-- MathJax 3.x (TeX-MML-CHTML) -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+            async></script>
     </head>
     <body>
         <!-- Header Section -->
@@ -30,8 +59,10 @@
         <div class="container">
             <!-- Sidebar -->
             <aside>
-                <img src="assets/cat.jpeg" alt="Cat's Algorithm Logo"
-                    class="logo">
+                <img
+                    src="assets/cat.jpeg"
+                    alt="Cat's Algorithm Logo"
+                    class="logo" />
                 <h1>Cat's Algorithm</h1>
                 <nav>
                     <a href="index.html" class="homepage-link">HomePage</a>
@@ -41,11 +72,15 @@
                     <a href="reading.html">Reading Materials</a>
                 </nav>
                 <div class="social-media">
-                    <a href="https://www.linkedin.com/" target="_blank"
+                    <a
+                        href="https://www.linkedin.com/"
+                        target="_blank"
                         class="linkedin">
                         <i class="fab fa-linkedin"></i> LinkedIn
                     </a>
-                    <a href="https://github.com/" target="_blank"
+                    <a
+                        href="https://github.com/"
+                        target="_blank"
                         class="github">
                         <i class="fab fa-github"></i> GitHub
                     </a>
@@ -71,10 +106,7 @@
                             <p>Typical DFS Template of Iteration and
                                 Recursion</p>
                         </div>
-                        <div class="card" data-topic>
-                            <h3></h3>
-                            <p></p>
-                        </div>
+                        <!-- 如果還有更多模板，可依需求新增其他 .card -->
                     </div>
                 </section>
 
@@ -92,14 +124,21 @@
         <footer>
             <div class="footer-container">
                 <p>© 2025 My Website</p>
-                <p>Contact: <a
-                        href="mailto:b12902036@csie.ntu.edu.tw">b12902036@csie.ntu.edu.tw</a></p>
+                <p>
+                    Contact:
+                    <a
+                        href="mailto:b12902036@csie.ntu.edu.tw">b12902036@csie.ntu.edu.tw</a>
+                </p>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/" target="_blank"
+                    <a
+                        href="https://www.linkedin.com/"
+                        target="_blank"
                         aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://github.com/" target="_blank"
+                    <a
+                        href="https://github.com/"
+                        target="_blank"
                         aria-label="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
@@ -109,25 +148,28 @@
 
         <!-- Script Section -->
         <script>
-        // 定義每個 Topic 的內容
-        const topics = {
-            template1: {
-                title: "BFS",
-                content: `
-                    <p>Breadth-First Search (BFS) is a graph traversal algorithm that explores all the nodes at the current depth level before moving on to the next depth level. Starting from a given source node, it visits all its neighbors first, then their unvisited neighbors, and so on. BFS uses a queue to keep track of the nodes to be visited and ensures that each node is visited only once. It is commonly used to find the shortest path in an unweighted graph, detect connected components, and solve problems like maze exploration, social network analysis, and web crawling.</p>
-                    <pre><code class="language-c">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+    // 定義每個 Topic (卡片) 的內容
+    const topics = {
+      template1: {
+        title: "BFS",
+        content: `
+### **Breadth-First Search (BFS)**
+
++ Breadth-First Search (BFS) is a graph traversal algorithm that explores all the nodes at the current depth level before moving on to the next depth level. Starting from a given source node, it visits all its neighbors first, then their unvisited neighbors, and so on. BFS uses a queue to keep track of the nodes to be visited and ensures that each node is visited only once. It is commonly used to find the shortest path in an unweighted graph, detect connected components, and solve problems like maze exploration, social network analysis, and web crawling.
+
+\`\`\`c
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct Node 
 {
     int val;
-    struct Node** neighbors;  // Graph
-    int neighborCount;        // Graph
-    struct Node* left;        // Tree
-    struct Node* right;       // Tree
+    struct Node** neighbors;  // graph
+    int neighborCount;        // graph
+    struct Node* left;        // tree
+    struct Node* right;       // tree
 } Node;
 
-// 定義佇列結構
 typedef struct Queue 
 {
     Node** data;  
@@ -166,20 +208,21 @@ void enqueue(Queue* queue, Node* node)
     queue->data[queue->rear++] = node;
 }
 
-
 Node* dequeue(Queue* queue) 
 {
     if (queue->front == queue->rear) 
     {
-        return NULL;  
+        return NULL; 
     }
     return queue->data[queue->front++];
 }
+
 
 int isQueueEmpty(Queue* queue) 
 {
     return queue->front == queue->rear;
 }
+
 
 void BFS(Node* start) 
 {
@@ -195,11 +238,14 @@ void BFS(Node* start)
 
     while (!isQueueEmpty(queue)) 
     {
+
         Node* current = dequeue(queue);
 
+ 
         printf("Visited node: %d\\n", current->val);
 
-        for (int i = 0; i < current->neighborCount; i++) // graph
+        // Graph
+        for (int i = 0; i < current->neighborCount; i++) 
         {
             Node* neighbor = current->neighbors[i];
             if (!visited[neighbor->val]) 
@@ -219,20 +265,27 @@ void BFS(Node* start)
             enqueue(queue, current->right);
         }
     }
+
     free(queue->data);
     free(queue);
-}</code></pre>
-                `
-            },
-            template2: {
-                title: "Heap",
-                content: `
-                    <p>Heap is a specialized binary tree data structure that satisfies the heap property, meaning the parent node is always greater than or equal to (in a max-heap) or less than or equal to (in a min-heap) its child nodes.
+}
+\`\`\`
+        `
+      },
+      template2: {
+        title: "Heap",
+        content: `
+### **Heap Construction**
 
-In a max-heap, the root node has the largest value, while in a min-heap, the root node has the smallest value. Heaps are commonly used to implement priority queues, Dijkstra's algorithm, sorting algorithms (like heap sort), and scheduling systems. The key operations in a heap include insertion, deletion, and heapify, all of which can be done efficiently in O(log n) time.</p>
-                    <pre><code class="language-c">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;limits.h&gt;
+Heap is a specialized binary tree data structure that satisfies the heap property, meaning the parent node is always greater than or equal to (in a max-heap) or less than or equal to (in a min-heap) its child nodes.
+
+In a max-heap, the root node has the largest value, while in a min-heap, the root node has the smallest value. Heaps are commonly used to implement priority queues, Dijkstra's algorithm, sorting algorithms (like heap sort), and scheduling systems. The key operations in a heap include insertion, deletion, and heapify, all of which can be done efficiently in O(log n) time.
+
+\`\`\`c
+#include<stdio.h>
+#include<stdlib.h>
+#include<limits.h>
+
 typedef struct
 {
     int* array;
@@ -319,14 +372,19 @@ void printHeap(MaxHeap* heap)
         printf("%d ", heap->array[i]);
     }
     printf("\\n");
-}</code></pre>
-                `
-            },
-            template3: {
+}
+\`\`\`
+        `
+      },
+      template3: {
         title: "DFS",
         content: `
-            <p>Depth-First Search (DFS) is a graph traversal algorithm that explores as far as possible along each branch before backtracking. It starts from a source node, explores one neighbor deeply until reaching a dead end, and then backtracks to explore other unvisited neighbors. DFS can be implemented using a stack (explicit or via recursion). It is commonly used for cycle detection, topological sorting, pathfinding, and solving puzzle-like problems (e.g., maze solving or Sudoku). Unlike BFS, DFS may not always find the shortest path but is more memory efficient in deep graphs.</p>
-            <pre><code class="language-c">typedef struct Node
+### **Depth-First Search (DFS)**
+
+Depth-First Search (DFS) is a graph traversal algorithm that explores as far as possible along each branch before backtracking. It starts from a source node, explores one neighbor deeply until reaching a dead end, and then backtracks to explore other unvisited neighbors. DFS can be implemented using a stack (explicit or via recursion). It is commonly used for cycle detection, topological sorting, pathfinding, and solving puzzle-like problems (e.g., maze solving or Sudoku). Unlike BFS, DFS may not always find the shortest path but is more memory efficient in deep graphs.
+
+\`\`\`c
+typedef struct Node
 {
     int vertex;
     struct Node* next;
@@ -430,46 +488,52 @@ void dfsIterative(Graph* graph, int startVertex)
             temp = temp->next;
         }
     }
-}</code></pre>
-        `,
-    },
-    template4:{title:"",content:``,},
-};
-        // 處理卡片點擊事件
-        document.addEventListener("DOMContentLoaded", () => {
-            document.querySelectorAll(".card").forEach(card => {
-                card.addEventListener("click", () => {
-                    const topicKey = card.getAttribute("data-topic");
-                    loadTopicContent(topicKey);
-                });
-            });
+}
+\`\`\`
+        `
+      }
+    };
 
-            hljs.highlightAll();
+    // DOM 內容載入完後執行
+    document.addEventListener("DOMContentLoaded", () => {
+      // 點擊每張卡片後，載入對應的內容
+      document.querySelectorAll(".card").forEach(card => {
+        card.addEventListener("click", () => {
+          const topicKey = card.getAttribute("data-topic");
+          loadTopicContent(topicKey);
         });
+      });
 
-        // 動態加載 Topic 的內容
-        function loadTopicContent(topicKey) {
-            const topic = topics[topicKey];
-            if (topic) {
-                document.getElementById("topic-title").innerText = topic.title;
-                document.getElementById("topic-body").innerHTML = topic.content;
-                document.querySelector(".problems").classList.add("hidden");
-                document.getElementById("topic-content").classList.remove("hidden");
-                document.querySelectorAll('#topic-body pre code').forEach((block) => {
+      // 初始化 Highlight.js (先對頁面上可能已有的 code block 處理)
+      hljs.highlightAll();
+    });
+
+    // 動態加載 Topic 的內容
+    function loadTopicContent(topicKey) {
+      const topic = topics[topicKey];
+      if (topic) {
+        // 改變標題、正文
+        document.getElementById("topic-title").innerText = topic.title;
+        document.getElementById("topic-body").innerHTML = marked.parse(topic.content);
+
+        // 等等 MathJax 排版完成後，再執行程式碼高亮
+        MathJax.typesetPromise().then(() => {
+          document.querySelectorAll("#topic-body pre code").forEach((block) => {
             hljs.highlightElement(block);
+          });
         });
 
-                
-            }
-            
-        }
+        // 顯示 Topic 內容、隱藏主頁列表
+        document.querySelector(".problems").classList.add("hidden");
+        document.getElementById("topic-content").classList.remove("hidden");
+      }
+    }
 
-        // 返回主頁的按鈕功能
-        function backToTopics() {
-            document.querySelector(".problems").classList.remove("hidden");
-            document.getElementById("topic-content").classList.add("hidden");
-        }
-    </script>
-
+    // 返回主頁的按鈕功能
+    function backToTopics() {
+      document.querySelector(".problems").classList.remove("hidden");
+      document.getElementById("topic-content").classList.add("hidden");
+    }
+  </script>
     </body>
 </html>

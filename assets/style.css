@@ -1,8 +1,11 @@
+/* ============================= */
+/* Global / Reset Styles         */
+/* ============================= */
 body {
-    /* main */
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    /* 統一三色漸層 */
     background: linear-gradient(45deg, #f3ec78, #af4261, #007bff);
     background-size: 400% 400%;
     animation: gradientBG 10s ease infinite;
@@ -12,27 +15,61 @@ body {
     min-height: 100vh;
 }
 
-nav a.active {
-    /* sidebar words */
-    background-color: #0056b3;
-    font-weight: bold;
+/* 動畫: 背景漸層 */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
+/* 去除預設連結樣式、增加較一致的風格 */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ============================= */
+/* Header (Hero) Section         */
+/* ============================= */
 .hero {
-    /* banner */
     text-align: center;
-    background: linear-gradient(45deg, #f3ec78, #af4261);
+    /* 與 body 統一使用三色漸層，呈現視覺一致性 */
+    background: linear-gradient(45deg, #f3ec78, #af4261, #007bff);
     background-size: 400% 400%;
     animation: gradientBG 10s ease infinite;
     color: white;
     padding: 20px;
 }
 
+.hero h1 {
+    font-size: 36px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #f8f8f2;
+    /* 陰影對比 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 10px;
+}
+
+/* ============================= */
+/* Main Container                */
+/* ============================= */
 .container {
     display: flex;
     flex-grow: 1;
 }
 
+/* ============================= */
+/* Sidebar                       */
+/* ============================= */
 aside {
     width: 250px;
     background-color: #f4f4f4;
@@ -56,6 +93,7 @@ aside h1 {
     text-align: center;
 }
 
+/* 側邊欄 Nav */
 nav {
     width: 100%;
     display: flex;
@@ -78,218 +116,17 @@ nav a {
 }
 
 nav a:hover {
-    /* when going to click */
     background-color: #0056b3;
     transform: scale(1.05);
 }
 
-main {
-    flex-grow: 1;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-main h2, main h3 {
-    text-align: center;
-}
-
-main p, main li {
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: center;
-}
-
-.introduction {
-    max-width: 800px;
-    margin: 40px auto;
-    /* 與其他區域保持良好的間距 */
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 15px;
-    /* 圓角更顯柔和 */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease;
-    transform: translateX(-100px);
-    /* 動畫進入效果 */
-}
-
-/* 各 Section 區塊樣式 */
-.introduction section {
-    margin-bottom: 25px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-}
-
-/* 標題樣式 */
-.introduction h2 {
-    text-align: center;
-    font-size: 30px;
-    color: #007bff;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    /* 全大寫，讓標題更有設計感 */
-    letter-spacing: 1px;
-}
-
-.introduction h3 {
-    font-size: 24px;
-    color: #0056b3;
-    margin-bottom: 15px;
-}
-
-/* 段落樣式 */
-.introduction p {
-    line-height: 1.8;
-    margin-bottom: 15px;
-    text-align: justify;
-    /* 將文字對齊兩側 */
-}
-
-/* 列表樣式 */
-.introduction ul {
-    list-style-type: circle;
-    padding-left: 20px;
-    margin: 15px 0;
-}
-
-.introduction ul li {
-    list-style: none;
-    margin-bottom: 10px;
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-/* 加入平滑的 hover 效果 */
-.introduction section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-/* 動畫效果 */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-
-.welcome, .updates, .search, .challenge, .statistics, #notifications {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.welcome:hover, .updates:hover, .search:hover, .challenge:hover, .statistics:hover, #notifications:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.updates ul {
-    list-style: none;
-    padding: 0;
-}
-
-.updates li {
-    padding: 5px 0;
-    border-bottom: 1px solid #ddd;
-}
-
-.updates li:hover {
-    background-color: #f7f7f7;
-    transition: background-color 0.2s ease;
-}
-
-
-.updates li:last-child {
-    border-bottom: none;
-}
-
-.search {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#search {
-    width: 80%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-#search:hover, #search:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-#search-btn {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#search-btn:hover {
+/* 當前頁面的連結高亮 */
+nav a.active {
     background-color: #0056b3;
+    font-weight: bold;
 }
 
-#search-btn:active {
-    background-color: #003d80;
-}
-
-/* on phone */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-
-    aside {
-        width: 100%;
-        text-align: center;
-    }
-
-    nav a {
-        width: 90%;
-    }
-
-    main {
-        padding: 10px;
-    }
-}
-
-/* animation of beautiful background */
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
+/* 社群媒體按鈕容器 */
 .social-media {
     margin-top: 20px;
     display: flex;
@@ -298,6 +135,7 @@ main p, main li {
     align-items: center;
 }
 
+/* 社群媒體單一按鈕樣式 */
 .social-media a {
     display: inline-block;
     width: 100px;
@@ -324,22 +162,33 @@ main p, main li {
     opacity: 0.9;
 }
 
-#progress-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: #f3f3f3;
+/* ============================= */
+/* Main                          */
+/* ============================= */
+main {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-#progress-bar {
-    height: 100%;
-    width: 0;
-    background: #007bff;
-    transition: width 0.1s ease;
+main h2,
+main h3 {
+    text-align: center;
 }
 
+main p,
+main li {
+    list-style-type: none;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* ============================= */
+/* Footer                        */
+/* ============================= */
 footer {
     background-color: #343a40;
     color: #f8f9fa;
@@ -370,7 +219,194 @@ footer {
     text-decoration: underline;
 }
 
-/* 問題區塊樣式 */
+/* ============================= */
+/* Introduction / Content Blocks */
+/* ============================= */
+.introduction {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease;
+    transform: translateX(-100px);
+    /* 動畫進入效果 */
+}
+
+/* fadeIn 動畫 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* introduction 裡面的每個小 section */
+.introduction section {
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.introduction section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* introduction 標題樣式 */
+.introduction h2 {
+    text-align: center;
+    font-size: 30px;
+    color: #007bff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.introduction h3 {
+    font-size: 24px;
+    color: #0056b3;
+    margin-bottom: 15px;
+}
+
+/* introduction 文字、列表 */
+.introduction p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.introduction ul {
+    list-style-type: none;
+    padding-left: 20px;
+    margin: 15px 0;
+}
+
+.introduction ul li {
+    list-style: none;
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* ============================= */
+/* 區塊 (welcome, updates, etc.) */
+/* ============================= */
+.welcome,
+.updates,
+.search,
+.challenge,
+.statistics,
+#notifications {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.welcome:hover,
+.updates:hover,
+.search:hover,
+.challenge:hover,
+.statistics:hover,
+#notifications:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* updates 區塊 */
+.updates ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.updates li {
+    list-style-type: none;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.updates li:hover {
+    background-color: #f7f7f7;
+    transition: background-color 0.2s ease;
+}
+
+.updates li:last-child {
+    border-bottom: none;
+}
+
+/* search 區塊 */
+.search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#search {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#search:hover,
+#search:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+#search-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#search-btn:hover {
+    background-color: #0056b3;
+}
+
+#search-btn:active {
+    background-color: #003d80;
+}
+
+/* ============================= */
+/* Progress Bar                  */
+/* ============================= */
+#progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #f3f3f3;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0;
+    background: #007bff;
+    transition: width 0.1s ease;
+}
+
+/* ============================= */
+/* Problems Section / Cards      */
+/* ============================= */
 .problems {
     text-align: center;
     padding: 20px;
@@ -380,7 +416,6 @@ footer {
     margin: 20px auto;
     max-width: 1200px;
     width: 90%;
-    /* 使用百分比讓區塊隨螢幕大小縮放 */
 }
 
 .problems h2 {
@@ -388,7 +423,6 @@ footer {
     margin-bottom: 20px;
 }
 
-/* 問題卡片容器 */
 .problem-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -407,11 +441,6 @@ footer {
     width: 200px;
 }
 
-.card a {
-    text-decoration: none;
-    color: #333;
-}
-
 .card h3 {
     font-size: 18px;
     margin-bottom: 10px;
@@ -428,6 +457,9 @@ footer {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* ============================= */
+/* Comments                      */
+/* ============================= */
 .comments {
     margin-top: 40px;
     background-color: #fff;
@@ -448,7 +480,6 @@ footer {
 #comments-list {
     margin-bottom: 20px;
     max-height: 400px;
-    /* 增加高度 */
     overflow-y: auto;
     border: 1px solid #ccc;
     padding: 10px;
@@ -463,26 +494,22 @@ footer {
 textarea#comment-input {
     width: 100%;
     height: 120px;
-    /* 增加高度 */
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     margin-bottom: 10px;
     font-size: 14px;
-    /* 增加字體大小 */
 }
 
 button#submit-comment {
     display: block;
     width: 100%;
     padding: 15px;
-    /* 增加按鈕高度 */
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
-    /* 增加字體大小 */
     cursor: pointer;
 }
 
@@ -490,6 +517,9 @@ button#submit-comment:hover {
     background-color: #0056b3;
 }
 
+/* ============================= */
+/* Paper Form                    */
+/* ============================= */
 .paper-form {
     margin-top: 20px;
     padding: 15px;
@@ -530,13 +560,19 @@ button#submit-comment:hover {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .submit-button:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
 
+.submit-button:active {
+    background-color: #003d80;
+}
+
+/* 已新增的 paper 列表 */
 #added-papers {
     margin-top: 20px;
     padding: 15px;
@@ -555,6 +591,7 @@ button#submit-comment:hover {
 }
 
 #paper-list li {
+    list-style-type: none;
     margin-bottom: 10px;
     padding: 10px;
     background-color: #fff;
@@ -562,8 +599,11 @@ button#submit-comment:hover {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* Main section styles */
-.materials-section, .add-material-section {
+/* ============================= */
+/* Materials & Form Sections     */
+/* ============================= */
+.materials-section,
+.add-material-section {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -572,15 +612,14 @@ button#submit-comment:hover {
     max-width: 800px;
 }
 
-/* Headings */
-.materials-section h2, .add-material-section h3 {
-    color: #007bff;
+.materials-section h2,
+.add-material-section h3 {
+    color: black;
     text-align: center;
     margin-bottom: 20px;
     font-size: 24px;
 }
 
-/* List styles */
 .materials-list {
     list-style: none;
     padding: 0;
@@ -588,33 +627,23 @@ button#submit-comment:hover {
 }
 
 .materials-list li {
-    background-color: #f9f9f9;
-    padding: 10px 15px;
-    border-radius: 5px;
+    list-style-type: none;
     margin-bottom: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Hover effect for list items */
-.materials-list li:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Link styles inside list */
-.materials-list li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
     font-size: 16px;
 }
 
-.materials-list li a:hover {
+.materials-list li a {
+    list-style-type: none;
+    text-decoration: none;
     color: #007bff;
 }
 
-/* Form styles */
+.materials-list li a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* 新增材料表單 */
 .material-form {
     margin-top: 20px;
     padding: 15px;
@@ -647,41 +676,44 @@ button#submit-comment:hover {
     outline: none;
 }
 
-/* Button styles */
-.submit-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.submit-button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
-
-.submit-button:active {
-    background-color: #003d80;
-}
-
-/* Divider line styles */
+/* ============================= */
+/* Horizontal line               */
+/* ============================= */
 hr {
     border: none;
-    border-top: 1px solid #ddd;
+    border-top: 2px solid #007bff;
     margin: 20px 0;
+    opacity: 0.7;
 }
 
-/* Responsiveness */
+/* ============================= */
+/* Responsiveness                */
+/* ============================= */
 @media (max-width: 768px) {
-    .materials-section, .add-material-section {
+    .container {
+        flex-direction: column;
+    }
+
+    aside {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav a {
+        width: 90%;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    .materials-section,
+    .add-material-section {
         padding: 15px;
     }
 
     .materials-list li {
+        list-style-type: none;
         font-size: 14px;
     }
 
@@ -691,33 +723,32 @@ hr {
     }
 }
 
-/* 程式碼區域樣式 */
+/* ============================= */
+/* Code Template & Pre styles    */
+/* ============================= */
 pre.code-template {
     background-color: #282a36;
-    /* 符合 Dracula 主題的背景色 */
+    /* Dracula 主題 */
     color: #f8f8f2;
-    /* 字體顏色 */
     padding: 20px;
     border-radius: 10px;
     font-size: 14px;
     overflow-x: auto;
-    /* 可滾動的水平區域 */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     line-height: 1.5;
+    transition: transform 0.3s ease-in-out;
 }
 
 pre.code-template code {
     font-family: "Courier New", Courier, monospace;
 }
 
-/* 程式碼區域的 hover 效果 */
 pre.code-template:hover {
     transform: scale(1.02);
-    transition: all 0.3s ease-in-out;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* 程式碼行號樣式 (如果需要) */
+/* 行號 (若使用 highlight.js line-numbers) */
 .hljs-ln-numbers {
     text-align: right;
     color: #6272a4;
@@ -727,17 +758,9 @@ pre.code-template:hover {
     margin-right: 10px;
 }
 
-/* 標題樣式調整 */
-.hero h1 {
-    font-size: 36px;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: #f8f8f2;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-    margin-bottom: 10px;
-}
-
-/* Example Section */
+/* ============================= */
+/* Example Solution Section      */
+/* ============================= */
 .example-solution {
     margin: 20px auto;
     padding: 20px;
@@ -786,7 +809,9 @@ pre.code-template:hover {
     transform: scale(1.05);
 }
 
-/* Back to Top Button */
+/* ============================= */
+/* Back to Top Button            */
+/* ============================= */
 #back-to-top {
     position: fixed;
     bottom: 20px;
@@ -806,6 +831,9 @@ pre.code-template:hover {
     transform: scale(1.1);
 }
 
+/* ============================= */
+/* Problem Description           */
+/* ============================= */
 .problem-description {
     background-color: #f9f9f9;
     padding: 20px;
@@ -825,37 +853,28 @@ pre.code-template:hover {
     font-size: 16px;
     line-height: 1.8;
     color: #222;
-    /* 加深字體顏色，對比更明顯 */
     background-color: #f9f9f9;
-    /* 背景色保持一致 */
     padding: 15px;
-    /* 增加內距，提升閱讀舒適度 */
     border-left: 5px solid #007bff;
-    /* 更粗的左邊框，更顯眼 */
     border-radius: 6px;
-    /* 輕微圓角 */
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    /* 更柔和的陰影 */
     margin-bottom: 20px;
     text-align: justify;
 }
 
 .problem-description code {
     padding: 3px 7px;
-    /* 調整內距 */
     border-radius: 5px;
-    /* 增加圓角 */
     font-size: 14px;
     font-family: "Courier New", Courier, monospace;
     color: #d63384;
-    /* 顏色保持亮眼 */
     background-color: #f1f3f5;
-    /* 更輕柔的背景色 */
     border: 1px solid #dee2e6;
-    /* 添加細邊框 */
 }
 
-/* Example Section */
+/* ============================= */
+/* Markdown Container            */
+/* ============================= */
 .markdown-container {
     background-color: #f9f9f9;
     padding: 15px;
@@ -880,70 +899,56 @@ pre.code-template:hover {
     font-family: "Courier New", Courier, monospace;
 }
 
+/* ============================= */
+/* Example Section (VSCode風格)  */
+/* ============================= */
 .example-section {
     background-color: #f9f9f9;
-    /* 深色背景 */
     color: #007bff;
-    /* 字體顏色調整為灰色 */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* 增加陰影 */
     margin-top: 20px;
     border: 1px solid #444444;
-    /* 添加細邊框 */
 }
 
 .example-section h3 {
     font-size: 20px;
     color: #fefefe;
-    /* 使用 VSCode 藍色風格 */
     margin-bottom: 15px;
     text-align: center;
     text-transform: uppercase;
-    /* 標題大寫 */
     letter-spacing: 1px;
-    /* 增加字母間距 */
 }
 
 .example-section pre {
     overflow-x: auto;
-    /* 支援水平滾動 */
     background-color: #1e1e1e;
-    /* 與外層背景一致 */
     padding: 20px;
     border-radius: 10px;
     color: #dcdcdc;
-    /* 字體顏色 */
     font-size: 14px;
     line-height: 1.6;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
-    /* 增加內陰影 */
     border: 1px solid #3c3c3c;
-    /* 內部邊框 */
     margin-bottom: 15px;
-    /* 增加段落間距 */
 }
 
 .example-section pre code {
     font-family: "Courier New", Courier, monospace;
-    /* 固定寬度字體 */
     color: #fefefe;
-    /* 關鍵字顏色 */
     display: block;
-    /* 確保每行程式碼對齊 */
 }
 
 .example-section pre code .comment {
     color: #6a9955;
-    /* 註解顏色，綠色風格 */
+    /* 註解綠 */
     font-style: italic;
-    /* 傾斜以區分 */
 }
 
 .example-section pre code .keyword {
     color: #c586c0;
-    /* 關鍵字顏色，紫色風格 */
+    /* 關鍵字紫 */
 }
 
 .example-section pre code .number {
@@ -955,12 +960,10 @@ pre.code-template:hover {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
-    /* 按鈕之間的間距 */
 }
 
 .code-buttons button {
     background-color: #007acc;
-    /* 淺藍色按鈕背景 */
     color: white;
     border: none;
     padding: 8px 12px;
@@ -972,59 +975,53 @@ pre.code-template:hover {
 
 .code-buttons button:hover {
     background-color: #005a9e;
-    /* 深藍色 hover 效果 */
     transform: scale(1.05);
 }
 
 .code-buttons button:active {
     background-color: #003d6b;
-    /* 點擊時更深的藍色 */
 }
 
+/* ============================= */
+/* Hidden Class Transition       */
+/* ============================= */
 .hidden {
-    display: none;
     opacity: 0;
+    pointer-events: none;
     transition: opacity 0.5s ease;
 }
 
+.hidden.show {
+    opacity: 1;
+    pointer-events: auto;
+}
 
-/* Topic 標題樣式 */
+/* ============================= */
+/* Topic Section                 */
+/* ============================= */
 #topic-title {
     font-size: 32px;
-    color: #007bff;
+    color: #333;
     text-align: center;
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-weight: bold;
 }
 
-/* Topic 內容段落樣式 */
 #topic-body {
     padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
-    line-height: 1.8;
-}
-
-/* Topic 內容的段落 */
-#topic-body p {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     font-size: 16px;
     line-height: 1.8;
     color: #333;
-    text-align: justify;
-    margin-bottom: 15px;
-    background-color: #ffffff;
-    padding: 15px;
-    border-left: 4px solid #007bff;
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* 列表樣式 */
+/* Markdown 列表樣式 */
 #topic-body ul {
-    list-style-type: disc;
+    list-style-type: none;
     margin: 20px 0;
     padding-left: 40px;
     font-size: 16px;
@@ -1032,14 +1029,18 @@ pre.code-template:hover {
 }
 
 #topic-body ul li {
-    margin-bottom: 10px;
+    list-style-type: none;
+    margin-bottom: 12px;
     line-height: 1.6;
 }
 
+/* Topic 內容程式碼塊 */
 #topic-body pre {
+    background-color: #2d2d2d;
+    color: #f8f8f2;
     padding: 20px;
     border-radius: 10px;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.6;
     overflow-x: auto;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -1047,14 +1048,74 @@ pre.code-template:hover {
     margin-bottom: 15px;
 }
 
-/* 程式碼文字樣式 */
 #topic-body pre code {
-    font-family: "Courier New", Courier, monospace;
+    font-family: "Fira Code", "JetBrains Mono", "Source Code Pro", "Courier New", monospace;
 }
 
+/* Topic 內容行內程式碼 */
+#topic-body code {
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-family: "Fira Code", "JetBrains Mono", "Source Code Pro", "Courier New", monospace;
+    font-size: 15px;
+}
 
+/* 數學公式樣式 */
+#topic-body .mjx-math {
+    font-size: 17px;
+    color: #333;
+}
 
-/* 返回按鈕的樣式 */
+/* 粗體文字 */
+#topic-body strong {
+    font-weight: bold;
+    color: #0056b3;
+}
+
+/* Blockquote 區塊 */
+#topic-body blockquote {
+    margin: 20px 0;
+    padding: 15px 20px;
+    background-color: #f0f8ff;
+    border-left: 5px solid #007bff;
+    border-radius: 8px;
+    color: #333;
+    font-style: italic;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Topic 內容表格 */
+#topic-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+#topic-body th,
+#topic-body td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+#topic-body th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+#topic-body tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#topic-body tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* 返回按鈕 */
 #topic-content button {
     margin-top: 20px;
     padding: 12px 24px;
