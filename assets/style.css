@@ -1136,3 +1136,40 @@ pre.code-template:hover {
 #topic-content button:active {
     background-color: #003d80;
 }
+
+/* Daily Challenge Section Styles */
+#daily-challenge {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+#daily-challenge h3 {
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+#daily-challenge p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#daily-challenge a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+#daily-challenge a:hover {
+    background-color: #0056b3;
+}

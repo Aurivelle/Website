@@ -3,11 +3,21 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node api/index.js"
+    "start": "node server.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "debug": "^4.4.0",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "multer": "^1.4.5-lts.1"
-  }
+    "mongoose": "^8.9.3",
+    "multer": "^1.4.5-lts.1",
+    "node-cron": "^3.0.3",
+    "node-fetch": "^2.6.12"
+  },
+  "description": "In 2024 Winter, I am determined to make my website on my own (Well, of course with ChatGPT).\r This is just a beginning...\r HTML, CSS, JS, I am coming.",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
