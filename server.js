@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(
   cors({
-    origin: "https://website-seven-omega-42.vercel.app",
+    origin: "*",
   })
 );
 app.use(express.json());
