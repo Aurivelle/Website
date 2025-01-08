@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const fetchDailyChallenge = async () => {
   try {
     const response = await fetch(
-      "http://localhost:3000/api/daily-challenges/today"
+      "https://website-seven-omega-42.vercel.app/api/daily-challenges/today"
     );
     if (!response.ok) {
       throw new Error("Failed to fetch daily challenge");

@@ -5,6 +5,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+app.use(
+  cors({
+    origin: "https://website-seven-omega-42.vercel.app",
+  })
+);
 const cron = require("node-cron");
 
 const app = express();
