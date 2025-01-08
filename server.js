@@ -5,18 +5,17 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const cron = require("node-cron");
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Middleware
 app.use(
   cors({
     origin: "https://website-seven-omega-42.vercel.app",
   })
 );
-const cron = require("node-cron");
-
-const app = express();
-const PORT = 3000;
-
-// Middleware
-app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -36,6 +35,17 @@ mongoose
 const dailyChallengeRoutes = require("./api/routes/dailyChallenge");
 app.use("/api/daily-challenges", dailyChallengeRoutes);
 
+// Serve static files
+const path = require("path");
+app.use(express.static(path.join(__dirname)));
+
+// Catch-all route for serving `index.html`
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
+// Cron Job for Daily Challenge Update
+const { updateDailyChallenge } = require("./api/routes/dailyChallenge");
 cron.schedule("0 5 * * *", async () => {
   console.log("🔄 Running daily challenge update...");
   try {
@@ -47,6 +57,6 @@ cron.schedule("0 5 * * *", async () => {
 });
 
 // Start Server
-app.listen(PORT, async () => {
+app.listen(PORT, () => {
   console.log(`🚀 Server is running on http://localhost:${PORT}`);
 });
