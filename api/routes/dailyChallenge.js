@@ -18,6 +18,7 @@ const fetchLeetCodeChallenge = async () => {
       }
     }
   `;
+
   const response = await fetch("https://leetcode.com/graphql", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -25,6 +26,10 @@ const fetchLeetCodeChallenge = async () => {
   });
 
   const data = await response.json();
+  if (!data.data.activeDailyCodingChallengeQuestion) {
+    throw new Error("No daily challenge returned from LeetCode");
+  }
+
   return data.data.activeDailyCodingChallengeQuestion;
 };
 
@@ -36,7 +41,7 @@ const updateDailyChallenge = async () => {
 
     const existingChallenge = await DailyChallenge.findOne({ date });
     if (existingChallenge) {
-      console.log("✅ Daily challenge already exists");
+      console.log("✅ Daily challenge already exists for today.");
       return;
     }
 
