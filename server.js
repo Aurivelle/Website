@@ -5,47 +5,35 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const cron = require("node-cron");
 const path = require("path");
-const { updateDailyChallenge } = require("./api/routes/dailyChallenge");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(
-  cors({
-    origin: "*",
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type"],
-  })
-);
+app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // MongoDB Connection
-const mongoURI = process.env.MONGO_URI;
-if (!mongoURI) {
-  console.error("❌ Error: MONGO_URI is not defined!");
-  process.exit(1);
-}
-
 mongoose
-  .connect(mongoURI)
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB connected"))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
-// Routes
+// API Routes
 const dailyChallengeRoutes = require("./api/routes/dailyChallenge");
 app.use("/api/daily-challenges", dailyChallengeRoutes);
 
 // Serve static files
 app.use(express.static(path.join(__dirname)));
 
-// Catch-all route for serving `index.html`
-app.get("*", (req, res) => {
+// Only serve `index.html` for non-API requests
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-// Cron Job for Daily Challenge Update (Runs at 5 AM UTC daily)
+// Cron Job for Daily Challenge Update
+const { updateDailyChallenge } = require("./api/routes/dailyChallenge");
 cron.schedule("0 5 * * *", async () => {
   console.log("🔄 Running daily challenge update...");
   try {
