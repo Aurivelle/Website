@@ -18,7 +18,6 @@ const fetchLeetCodeChallenge = async () => {
       }
     }
   `;
-
   const response = await fetch("https://leetcode.com/graphql", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

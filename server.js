@@ -1,11 +1,11 @@
 require("dotenv").config();
-console.log("✅ MONGO_URI: ", process.env.MONGO_URI);
-
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const cron = require("node-cron");
+const path = require("path");
+const { updateDailyChallenge } = require("./api/routes/dailyChallenge");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -13,12 +13,11 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(
   cors({
-    origin: "*", // 允許所有來源
-    methods: ["GET", "POST"], // 允許的請求方法
-    allowedHeaders: ["Content-Type"], // 允許的請求頭
+    origin: "*",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
   })
 );
-
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -39,7 +38,6 @@ const dailyChallengeRoutes = require("./api/routes/dailyChallenge");
 app.use("/api/daily-challenges", dailyChallengeRoutes);
 
 // Serve static files
-const path = require("path");
 app.use(express.static(path.join(__dirname)));
 
 // Catch-all route for serving `index.html`
@@ -47,8 +45,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-// Cron Job for Daily Challenge Update
-const { updateDailyChallenge } = require("./api/routes/dailyChallenge");
+// Cron Job for Daily Challenge Update (Runs at 5 AM UTC daily)
 cron.schedule("0 5 * * *", async () => {
   console.log("🔄 Running daily challenge update...");
   try {
