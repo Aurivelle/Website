@@ -13,9 +13,12 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(
   cors({
-    origin: "*",
+    origin: "*", // 允許所有來源
+    methods: ["GET", "POST"], // 允許的請求方法
+    allowedHeaders: ["Content-Type"], // 允許的請求頭
   })
 );
+
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
