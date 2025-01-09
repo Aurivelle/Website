@@ -1,10 +1,8 @@
-const express = require("express");
-const router = express.Router();
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
 const DailyChallenge = require("../models/DailyChallenge");
 
-// ✅ Fetch LeetCode Daily Challenge
+// Fetch LeetCode Daily Challenge
 const fetchLeetCodeChallenge = async () => {
   try {
     const query = `
@@ -27,7 +25,6 @@ const fetchLeetCodeChallenge = async () => {
     });
 
     const data = await response.json();
-
     if (!data.data.activeDailyCodingChallengeQuestion) {
       throw new Error("Failed to fetch challenge from LeetCode.");
     }
@@ -39,14 +36,16 @@ const fetchLeetCodeChallenge = async () => {
   }
 };
 
-// ✅ Update Daily Challenge
+// Update Daily Challenge
 const updateDailyChallenge = async () => {
   try {
     const challenge = await fetchLeetCodeChallenge();
-    if (!challenge) return;
+    if (!challenge) {
+      console.log("❌ No challenge fetched from LeetCode.");
+      return;
+    }
 
     const { date, question } = challenge;
-
     const existingChallenge = await DailyChallenge.findOne({ date });
     if (existingChallenge) {
       console.log("✅ Daily challenge already exists");
@@ -67,7 +66,10 @@ const updateDailyChallenge = async () => {
   }
 };
 
-// ✅ Route to Get Today's Challenge
+// Route to get today's challenge
+const express = require("express");
+const router = express.Router();
+
 router.get("/today", async (req, res) => {
   try {
     const today = new Date().toISOString().split("T")[0];
@@ -85,6 +87,5 @@ router.get("/today", async (req, res) => {
   }
 });
 
-// ✅ Export router and update function
 module.exports = router;
 module.exports.updateDailyChallenge = updateDailyChallenge;

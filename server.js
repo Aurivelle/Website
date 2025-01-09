@@ -28,8 +28,8 @@ app.use("/api/daily-challenges", dailyChallengeRoutes);
 // Serve static files
 app.use(express.static(path.join(__dirname)));
 
-// Handle all other requests by serving `index.html`
-app.get("*", (req, res) => {
+// Serve `index.html` for non-API routes
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
