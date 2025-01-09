@@ -4,44 +4,52 @@ const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
 const DailyChallenge = require("../models/DailyChallenge");
 
-// Fetch LeetCode Daily Challenge
+// ✅ Fetch LeetCode Daily Challenge
 const fetchLeetCodeChallenge = async () => {
-  const query = `
-    query {
-      activeDailyCodingChallengeQuestion {
-        date
-        question {
-          title
-          titleSlug
-          difficulty
+  try {
+    const query = `
+      query {
+        activeDailyCodingChallengeQuestion {
+          date
+          question {
+            title
+            titleSlug
+            difficulty
+          }
         }
       }
+    `;
+
+    const response = await fetch("https://leetcode.com/graphql", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query }),
+    });
+
+    const data = await response.json();
+
+    if (!data.data.activeDailyCodingChallengeQuestion) {
+      throw new Error("Failed to fetch challenge from LeetCode.");
     }
-  `;
 
-  const response = await fetch("https://leetcode.com/graphql", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ query }),
-  });
-
-  const data = await response.json();
-  if (!data.data.activeDailyCodingChallengeQuestion) {
-    throw new Error("No daily challenge returned from LeetCode");
+    return data.data.activeDailyCodingChallengeQuestion;
+  } catch (error) {
+    console.error("❌ Error fetching LeetCode challenge:", error);
+    return null;
   }
-
-  return data.data.activeDailyCodingChallengeQuestion;
 };
 
-// Update Daily Challenge
+// ✅ Update Daily Challenge
 const updateDailyChallenge = async () => {
   try {
     const challenge = await fetchLeetCodeChallenge();
+    if (!challenge) return;
+
     const { date, question } = challenge;
 
     const existingChallenge = await DailyChallenge.findOne({ date });
     if (existingChallenge) {
-      console.log("✅ Daily challenge already exists for today.");
+      console.log("✅ Daily challenge already exists");
       return;
     }
 
@@ -59,7 +67,7 @@ const updateDailyChallenge = async () => {
   }
 };
 
-// Route to get today's challenge
+// ✅ Route to Get Today's Challenge
 router.get("/today", async (req, res) => {
   try {
     const today = new Date().toISOString().split("T")[0];
@@ -77,5 +85,6 @@ router.get("/today", async (req, res) => {
   }
 });
 
+// ✅ Export router and update function
 module.exports = router;
 module.exports.updateDailyChallenge = updateDailyChallenge;
