@@ -34,17 +34,8 @@ app.get("/", (req, res) => {
 
 // Cron Job for Daily Challenge Update
 const { updateDailyChallenge } = require("./api/routes/dailyChallenge");
-cron.schedule("0 5 * * *", async () => {
-  console.log("🔄 Running daily challenge update...");
-  try {
-    await updateDailyChallenge();
-    console.log("✅ Daily challenge updated!");
-  } catch (error) {
-    console.error("❌ Error updating daily challenge:", error);
-  }
-});
 
-// Start Server
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(`🚀 Server is running on http://localhost:${PORT}`);
+  await updateDailyChallenge(); // 啟動時更新每日挑戰
 });
