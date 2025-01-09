@@ -50,7 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
 const fetchDailyChallenge = async () => {
   try {
     const response = await fetch("/api/daily-challenges/today");
-    if (!response.ok) throw new Error("Failed to fetch daily challenge");
+    if (!response.ok) {
+      throw new Error("Failed to fetch daily challenge");
+    }
 
     const challenge = await response.json();
     document.getElementById("challenge-title").innerText = challenge.title;
@@ -64,3 +66,5 @@ const fetchDailyChallenge = async () => {
       "Daily challenge not available.";
   }
 };
+
+document.addEventListener("DOMContentLoaded", fetchDailyChallenge);
