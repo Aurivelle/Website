@@ -55,16 +55,24 @@ const fetchDailyChallenge = async () => {
     }
 
     const challenge = await response.json();
-    document.getElementById("challenge-title").innerText = challenge.title;
-    document.getElementById("challenge-description").innerText =
-      challenge.description;
-    document.getElementById("challenge-link").href = challenge.link;
-    document.getElementById("challenge-link").innerText = "Go to Challenge";
+    const titleElement = document.getElementById("challenge-title");
+    const descriptionElement = document.getElementById("challenge-description");
+    const linkElement = document.getElementById("challenge-link");
+
+    if (titleElement && descriptionElement && linkElement) {
+      titleElement.innerText = challenge.title;
+      descriptionElement.innerText = challenge.description;
+      linkElement.href = challenge.link;
+      linkElement.innerText = "Go to Challenge";
+    }
   } catch (error) {
     console.error("Error fetching daily challenge:", error);
-    document.getElementById("challenge-title").innerText =
-      "Daily challenge not available.";
+    const titleElement = document.getElementById("challenge-title");
+    if (titleElement) {
+      titleElement.innerText = "Daily challenge not available.";
+    }
   }
 };
 
+// Fetch the challenge on page load
 document.addEventListener("DOMContentLoaded", fetchDailyChallenge);

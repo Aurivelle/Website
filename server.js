@@ -16,7 +16,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // MongoDB Connection
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("✅ MongoDB connected"))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
@@ -34,7 +37,7 @@ app.get("/", (req, res) => {
 });
 
 // Cron Job for Daily Challenge Update
-cron.schedule("0 5 * * *", async () => {
+cron.schedule("0 8 * * *", async () => {
   console.log("🔄 Running daily challenge update...");
   try {
     await updateDailyChallenge();

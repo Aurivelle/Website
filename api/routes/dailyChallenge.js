@@ -26,7 +26,7 @@ const fetchLeetCodeChallenge = async () => {
 
     const data = await response.json();
     if (!data.data.activeDailyCodingChallengeQuestion) {
-      throw new Error("Failed to fetch challenge from LeetCode.");
+      throw new Error("No challenge data from LeetCode.");
     }
 
     return data.data.activeDailyCodingChallengeQuestion;
@@ -36,17 +36,15 @@ const fetchLeetCodeChallenge = async () => {
   }
 };
 
-// Update Daily Challenge
+// Update Daily Challenge in Database
 const updateDailyChallenge = async () => {
   try {
     const challenge = await fetchLeetCodeChallenge();
-    if (!challenge) {
-      console.log("❌ No challenge fetched from LeetCode.");
-      return;
-    }
+    if (!challenge) return;
 
     const { date, question } = challenge;
     const existingChallenge = await DailyChallenge.findOne({ date });
+
     if (existingChallenge) {
       console.log("✅ Daily challenge already exists");
       return;
@@ -60,9 +58,9 @@ const updateDailyChallenge = async () => {
     });
 
     await newChallenge.save();
-    console.log("✅ Daily challenge updated!");
-  } catch (err) {
-    console.error("❌ Error updating daily challenge:", err);
+    console.log("✅ New daily challenge saved!");
+  } catch (error) {
+    console.error("❌ Error updating daily challenge:", error);
   }
 };
 
@@ -82,8 +80,8 @@ router.get("/today", async (req, res) => {
     }
 
     res.json(challenge);
-  } catch (err) {
-    res.status(500).json({ message: "Server error", error: err });
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error });
   }
 });
 
