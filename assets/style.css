@@ -1173,3 +1173,32 @@ pre.code-template:hover {
 #daily-challenge a:hover {
     background-color: #0056b3;
 }
+
+#clear-notifications {
+    background-color: #007bff;
+    /* 藍色背景 */
+    color: white;
+    /* 白色文字 */
+    padding: 10px 20px;
+    /* 內邊距 */
+    border: none;
+    /* 無邊框 */
+    border-radius: 5px;
+    /* 圓角 */
+    font-size: 16px;
+    /* 字體大小 */
+    cursor: pointer;
+    /* 游標變為手型 */
+    transition: background-color 0.3s ease;
+    /* 背景顏色過渡效果 */
+}
+
+#clear-notifications:hover {
+    background-color: #0056b3;
+    /* 滑鼠懸停時的深藍色 */
+}
+
+#clear-notifications:active {
+    background-color: #003d80;
+    /* 點擊時的更深藍色 */
+}
