@@ -92,21 +92,28 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// 從後端 API 獲取通知
+// Fetch notifications from the backend API
 const fetchNotifications = async () => {
   try {
     const response = await fetch(
-      "https://website-seven-omega-42.vercel.app/api/notifications"
-    ); // 後端 API
-    if (!response.ok) throw new Error("Failed to fetch notifications"); // 確認 API 響應成功
+      "https://website-seven-omega-42.vercel.app/api/notifications" // API URL
+    );
+    if (!response.ok) throw new Error("Failed to fetch notifications");
 
-    const notifications = await response.json(); // 獲取通知數據
+    const notifications = await response.json(); // Parse the JSON response
+
+    // Get the notifications list element from the DOM
+    const notificationsList = document.getElementById("notifications-list");
 
     if (notifications.length > 0) {
-      notificationList.innerHTML = "";
+      // Clear the list before appending new notifications
+      notificationsList.innerHTML = "";
+
       notifications.forEach((notification) => {
+        // Create a list item for each notification
         const li = document.createElement("li");
-        li.innerHTML = `<p>${notification.message}</p>
+        li.innerHTML = `
+          <p>${notification.message}</p>
           ${
             notification.link
               ? `<a href="${notification.link}" target="_blank">View more</a>`
@@ -114,15 +121,20 @@ const fetchNotifications = async () => {
           }
           <small>${new Date(notification.createdAt).toLocaleString()}</small>
         `;
-        notificationList.appendChild(li);
+        notificationsList.appendChild(li); // Append the notification to the list
       });
     } else {
-      notificationList.innerHTML = "<li>No notifications available.</li>";
+      // If no notifications are available
+      notificationsList.innerHTML = "<li>No notifications available.</li>";
     }
   } catch (error) {
-    console.error("Error fetching notifications:", error); // 控制台打印錯誤
+    console.error("Error fetching notifications:", error);
+
+    // Show an error message in the notifications list
     const notificationsList = document.getElementById("notifications-list");
-    notificationsList.innerHTML = "<li>No notifications available.</li>"; // 顯示默認信息
+    notificationsList.innerHTML = "<li>No notifications available.</li>";
   }
 };
+
+// Call the fetchNotifications function on page load
 window.onload = fetchNotifications;
