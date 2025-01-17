@@ -76,3 +76,51 @@ const fetchDailyChallenge = async () => {
 
 // Fetch the challenge on page load
 document.addEventListener("DOMContentLoaded", fetchDailyChallenge);
+
+// DOMContentLoaded 確保 DOM 已加載完成後執行
+document.addEventListener("DOMContentLoaded", () => {
+  const notificationsList = document.getElementById("notifications-list"); // 獲取通知列表
+  const clearButton = document.getElementById("clear-notifications"); // 獲取清除按鈕
+
+  // 初始化時載入通知
+  fetchNotifications();
+
+  // 綁定清除通知按鈕的點擊事件
+  clearButton.addEventListener("click", () => {
+    notificationsList.innerHTML = ""; // 清空通知列表
+    alert("Notifications cleared!"); // 彈出提示
+  });
+});
+
+// 從後端 API 獲取通知
+const fetchNotifications = async () => {
+  try {
+    const response = await fetch("http://localhost:3000/api/notifications"); // 後端 API
+    if (!response.ok) throw new Error("Failed to fetch notifications"); // 確認 API 響應成功
+
+    const notifications = await response.json(); // 獲取通知數據
+
+    if (notifications.length > 0) {
+      notificationList.innerHTML = "";
+      notifications.forEach((notification) => {
+        const li = document.createElement("li");
+        li.innerHTML = `<p>${notification.message}</p>
+          ${
+            notification.link
+              ? `<a href="${notification.link}" target="_blank">View more</a>`
+              : ""
+          }
+          <small>${new Date(notification.createdAt).toLocaleString()}</small>
+        `;
+        notificationList.appendChild(li);
+      });
+    } else {
+      notificationList.innerHTML = "<li>No notifications available.</li>";
+    }
+  } catch (error) {
+    console.error("Error fetching notifications:", error); // 控制台打印錯誤
+    const notificationsList = document.getElementById("notifications-list");
+    notificationsList.innerHTML = "<li>No notifications available.</li>"; // 顯示默認信息
+  }
+};
+window.onload = fetchNotifications;
