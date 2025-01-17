@@ -1,3 +1,6 @@
+const fs = require("fs");
+const path = require("path");
+const notificationsFile = path.join(__dirname, "../../notifications.json");
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
 const DailyChallenge = require("../models/DailyChallenge");
@@ -59,6 +62,17 @@ const updateDailyChallenge = async () => {
 
     await newChallenge.save();
     console.log("✅ New daily challenge saved!");
+    const notification = {
+      message: `New daily challenge: ${question.title}`,
+      link: `https://leetcode.com/problems/${question.titleSlug}/`,
+      createdAt: new Date().toISOString(),
+    };
+    const data = fs.readFileSync(notificationsFile, "utf-8");
+    const notifications = JSON.parse(data);
+    notifications.push(notification);
+    fs.writeFileSync(notificationsFile, JSON.stringify(notifications, null, 2));
+
+    console.log("✅ Notification added!");
   } catch (error) {
     console.error("❌ Error updating daily challenge:", error);
   }
