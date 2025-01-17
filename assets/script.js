@@ -95,7 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // 從後端 API 獲取通知
 const fetchNotifications = async () => {
   try {
-    const response = await fetch("http://localhost:3000/api/notifications"); // 後端 API
+    const response = await fetch(
+      "https://website-seven-omega-42.vercel.app/api/notifications"
+    ); // 後端 API
     if (!response.ok) throw new Error("Failed to fetch notifications"); // 確認 API 響應成功
 
     const notifications = await response.json(); // 獲取通知數據

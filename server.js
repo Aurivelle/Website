@@ -16,6 +16,17 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const notifications = [
+  {
+    message: "Welcome to Cat's Algorithm!",
+    link: null,
+    createdAt: new Date().toISOString(),
+  },
+];
+
+app.get("/api/notifications", (req, res) => {
+  res.json(notifications); // 返回通知列表
+});
 // MongoDB Connection
 mongoose
   .connect(process.env.MONGO_URI, {
