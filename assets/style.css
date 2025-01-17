@@ -1174,15 +1174,40 @@ pre.code-template:hover {
     background-color: #0056b3;
 }
 
+/* 針對通知區域的樣式 */
+#notifications {
+    display: flex;
+    /* 使用 Flexbox 排列 */
+    flex-direction: column;
+    /* 元素垂直排列 */
+    align-items: center;
+    /* 水平置中 */
+    justify-content: center;
+    /* 垂直置中 */
+    padding: 20px;
+    /* 增加內邊距 */
+    background-color: #f9f9f9;
+    /* 背景色 */
+    border: 1px solid #ccc;
+    /* 邊框 */
+    border-radius: 8px;
+    /* 圓角 */
+    margin: 20px auto;
+    /* 讓整個通知區塊置中 */
+    max-width: 600px;
+    /* 最大寬度，避免過寬 */
+}
+
+/* 按鈕樣式 */
 #clear-notifications {
     background-color: #007bff;
-    /* 藍色背景 */
+    /* 按鈕背景色 */
     color: white;
-    /* 白色文字 */
+    /* 按鈕文字顏色 */
     padding: 10px 20px;
     /* 內邊距 */
     border: none;
-    /* 無邊框 */
+    /* 移除預設邊框 */
     border-radius: 5px;
     /* 圓角 */
     font-size: 16px;
@@ -1190,15 +1215,35 @@ pre.code-template:hover {
     cursor: pointer;
     /* 游標變為手型 */
     transition: background-color 0.3s ease;
-    /* 背景顏色過渡效果 */
+    /* 背景色過渡效果 */
 }
 
+/* 按鈕懸停樣式 */
 #clear-notifications:hover {
     background-color: #0056b3;
-    /* 滑鼠懸停時的深藍色 */
+    /* 懸停時背景色 */
 }
 
 #clear-notifications:active {
     background-color: #003d80;
-    /* 點擊時的更深藍色 */
+    /* 點擊時背景色 */
+}
+
+/* 通知列表樣式 */
+#notifications-list {
+    list-style-type: none;
+    /* 移除列表樣式 */
+    padding: 0;
+    /* 移除內邊距 */
+    margin-bottom: 20px;
+    /* 與按鈕的距離 */
+}
+
+#notifications-list li {
+    margin: 10px 0;
+    /* 每個通知的間距 */
+    font-size: 14px;
+    /* 通知文字大小 */
+    color: #333;
+    /* 通知文字顏色 */
 }
