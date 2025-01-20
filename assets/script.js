@@ -49,28 +49,21 @@ document.addEventListener("DOMContentLoaded", () => {
 // Fetch daily challenge from the backend API
 const fetchDailyChallenge = async () => {
   try {
-    const response = await fetch("/api/daily-challenges/today");
+    const response = await fetch(
+      "https://website-seven-omega-42.vercel.app/api/daily-challenges/today"
+    );
     if (!response.ok) {
       throw new Error("Failed to fetch daily challenge");
     }
-
     const challenge = await response.json();
-    const titleElement = document.getElementById("challenge-title");
-    const descriptionElement = document.getElementById("challenge-description");
-    const linkElement = document.getElementById("challenge-link");
-
-    if (titleElement && descriptionElement && linkElement) {
-      titleElement.innerText = challenge.title;
-      descriptionElement.innerText = challenge.description;
-      linkElement.href = challenge.link;
-      linkElement.innerText = "Go to Challenge";
-    }
+    document.getElementById("challenge-title").innerText = challenge.title;
+    document.getElementById("challenge-description").innerText =
+      challenge.description;
+    document.getElementById("challenge-link").href = challenge.link;
   } catch (error) {
     console.error("Error fetching daily challenge:", error);
-    const titleElement = document.getElementById("challenge-title");
-    if (titleElement) {
-      titleElement.innerText = "Daily challenge not available.";
-    }
+    document.getElementById("challenge-title").innerText =
+      "Daily challenge not available.";
   }
 };
 

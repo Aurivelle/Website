@@ -7,74 +7,39 @@ const DailyChallenge = require("../models/DailyChallenge");
 
 // Fetch LeetCode Daily Challenge
 const fetchLeetCodeChallenge = async () => {
-  try {
-    const query = `
-      query {
-        activeDailyCodingChallengeQuestion {
-          date
-          question {
-            title
-            titleSlug
-            difficulty
-          }
+  const query = `
+    query {
+      activeDailyCodingChallengeQuestion {
+        date
+        question {
+          title
+          titleSlug
+          difficulty
         }
       }
-    `;
-
-    const response = await fetch("https://leetcode.com/graphql", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query }),
-    });
-
-    const data = await response.json();
-    if (!data.data.activeDailyCodingChallengeQuestion) {
-      throw new Error("No challenge data from LeetCode.");
     }
-
-    return data.data.activeDailyCodingChallengeQuestion;
-  } catch (error) {
-    console.error("❌ Error fetching LeetCode challenge:", error);
-    return null;
-  }
+  `;
+  const response = await fetch("https://leetcode.com/graphql", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ query }),
+  });
+  return response.json();
 };
 
 // Update Daily Challenge in Database
 const updateDailyChallenge = async () => {
-  try {
-    const challenge = await fetchLeetCodeChallenge();
-    if (!challenge) return;
-
-    const { date, question } = challenge;
-    const existingChallenge = await DailyChallenge.findOne({ date });
-
-    if (existingChallenge) {
-      console.log("✅ Daily challenge already exists");
-      return;
-    }
-
+  const challenge = await fetchLeetCodeChallenge();
+  const today = new Date().toISOString().split("T")[0];
+  const existingChallenge = await DailyChallenge.findOne({ date: today });
+  if (!existingChallenge) {
     const newChallenge = new DailyChallenge({
-      date,
-      title: question.title,
-      description: `Difficulty: ${question.difficulty}`,
-      link: `https://leetcode.com/problems/${question.titleSlug}/`,
+      date: today,
+      title: challenge.question.title,
+      description: `Difficulty: ${challenge.question.difficulty}`,
+      link: `https://leetcode.com/problems/${challenge.question.titleSlug}/`,
     });
-
     await newChallenge.save();
-    console.log("✅ New daily challenge saved!");
-    const notification = {
-      message: `New daily challenge: ${question.title}`,
-      link: `https://leetcode.com/problems/${question.titleSlug}/`,
-      createdAt: new Date().toISOString(),
-    };
-    const data = fs.readFileSync(notificationsFile, "utf-8");
-    const notifications = JSON.parse(data);
-    notifications.push(notification);
-    fs.writeFileSync(notificationsFile, JSON.stringify(notifications, null, 2));
-
-    console.log("✅ Notification added!");
-  } catch (error) {
-    console.error("❌ Error updating daily challenge:", error);
   }
 };
 
