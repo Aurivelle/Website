@@ -18,7 +18,7 @@ const DailyChallengeSchema = new mongoose.Schema(
     difficulty: {
       type: String,
       enum: ["Easy", "Medium", "Hard"], // 固定難度範圍
-      required: true,
+      required: false,
     },
     tags: [{ type: String }], // 類別標籤（可選）
   },

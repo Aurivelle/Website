@@ -8,10 +8,14 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const cron = require("node-cron");
 const path = require("path");
+const postRoutes = require("./api/posts");
 
 // 初始化 Express 應用
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use("/api/posts", postRoutes);
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // 確保環境變數中有 MONGO_URI
 if (!process.env.MONGO_URI) {

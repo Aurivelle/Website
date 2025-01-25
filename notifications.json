@@ -1,7 +1,12 @@
 [
-    {
-      "message": "請許祐愷回我訊息",
-      "link": "https://www.youtube.com/watch?v=TsDZ6Kf8yr4",
-      "createdAt": "2025-01-25T10:00:00.000Z"
-    }
+  {
+    "message": "請許祐愷回我訊息",
+    "link": "https://www.youtube.com/watch?v=TsDZ6Kf8yr4",
+    "createdAt": "2025-01-25T10:00:00.000Z"
+  },
+  {
+    "message": "New daily challenge: Make Lexicographically Smallest Array by Swapping Elements",
+    "link": "https://leetcode.com/problems/make-lexicographically-smallest-array-by-swapping-elements/",
+    "createdAt": "2025-01-25T14:56:37.544Z"
+  }
 ]

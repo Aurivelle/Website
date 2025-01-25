@@ -4,7 +4,37 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Papers</title>
-        <link rel="stylesheet" href="assets/style.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dracula.min.css">
+        <!-- 全局樣式 -->
+        <link rel="stylesheet" href="assets/style/global.css">
+
+        <!-- 動畫相關 -->
+        <link rel="stylesheet" href="assets/style/animations.css">
+
+        <!-- 側邊欄樣式 -->
+        <link rel="stylesheet" href="assets/style/sidebar.css">
+
+        <!-- 主內容樣式 -->
+        <link rel="stylesheet" href="assets/style/main.css">
+
+        <!-- 頁尾樣式 -->
+        <link rel="stylesheet" href="assets/style/footer.css">
+
+        <!-- 響應式樣式 -->
+        <link rel="stylesheet" href="assets/style/responsive.css">
+
+        <!-- 表單相關樣式 -->
+        <link rel="stylesheet" href="assets/style/components/forms.css">
+
+        <!-- 進度條樣式 -->
+        <link rel="stylesheet" href="assets/style/components/progress-bar.css">
+
+        <!-- 評論區樣式 -->
+        <link rel="stylesheet" href="assets/style/components/comments.css">
+
+        <!-- 代碼區塊樣式 -->
+        <link rel="stylesheet" href="assets/style/components/code-blocks.css">
         <link rel="icon" href="assets/icon.jpg">
         <link
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -80,6 +110,59 @@
                         <button type="submit" class="submit-button">Add
                             Paper</button>
                     </form>
+                </section>
+                <section class="form-container">
+                    <h2>Post Something</h2>
+                    <form id="post-form">
+                        <div class="form-group">
+                            <label for="title">Title:</label>
+                            <input type="text" id="title" name="title"
+                                placeholder="Enter the title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Content:</label>
+                            <textarea type="content" name="content"
+                                placeholder="Write your content here..."
+                                required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Upload Image:</label>
+                            <input type="file" id="image" name="image"
+                                accept="image/*">
+                        </div>
+                        <button type="submit">Submit</button>
+                    </form>
+                    <script>
+                        const form = document.getElementById("post-form"); // 修正 getElementById 的拼寫錯誤
+                        form.addEventListener("submit", async (e) => {
+                            e.preventDefault(); // 防止頁面重新加載
+                    
+                            // 獲取表單資料
+                            const title = document.getElementById("title").value;
+                            const content = document.getElementById("content").value;
+                    
+                            try {
+                                const response = await fetch("/api/posts", {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json",
+                                    },
+                                    body: JSON.stringify({ title, content }),
+                                });
+                    
+                                if (response.ok) {
+                                    alert("Post submitted successfully!");
+                                    form.reset(); // 清空表單
+                                } else {
+                                    const errorData = await response.json();
+                                    alert(`Failed to submit post: ${errorData.error}`);
+                                }
+                            } catch (error) {
+                                console.error("Error:", error);
+                                alert("An unexpected error occurred.");
+                            }
+                        });
+                    </script>
                 </section>
             </main>
         </div>
