@@ -1,0 +1,141 @@
+/* ============================= */
+/* Forms and Inputs              */
+/* ============================= */
+
+/* 通用表單樣式 */
+form {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 表單組樣式 */
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* 通用輸入框樣式 */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 聚焦狀態 */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* 提交按鈕 */
+button[type="submit"],
+.submit-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* 提交按鈕的懸停和點擊效果 */
+button[type="submit"]:hover,
+.submit-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button[type="submit"]:active,
+.submit-button:active {
+    background-color: #003d80;
+}
+
+/* 文本域樣式 */
+textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+/* 錯誤提示樣式 */
+.input-error {
+    border-color: #dc3545;
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* 錯誤訊息文字 */
+.error-message {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* 已新增的項目列表 */
+#added-items {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#added-items h4 {
+    margin-bottom: 10px;
+}
+
+#item-list {
+    list-style: none;
+    padding: 0;
+}
+
+#item-list li {
+    list-style-type: none;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 文件上傳樣式 */
+input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* 文件上傳的懸停效果 */
+input[type="file"]:hover {
+    border-color: #007bff;
+    background-color: #e9ecef;
+}
+
+/* 檢查框和單選按鈕樣式 */
+input[type="checkbox"],
+input[type="radio"] {
+    margin-right: 10px;
+}

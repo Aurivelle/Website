@@ -1,0 +1,123 @@
+/* ============================= */
+/* Comments Section Styles       */
+/* ============================= */
+
+/* 整個評論區容器 */
+.comments {
+    margin-top: 40px;
+    background-color: #fff;
+    /* 背景色 */
+    border-radius: 10px;
+    /* 圓角 */
+    padding: 20px;
+    /* 內邊距 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* 陰影效果 */
+    max-width: 800px;
+    /* 最大寬度 */
+    margin-left: auto;
+    /* 左右置中 */
+    margin-right: auto;
+}
+
+/* 標題樣式 */
+.comments h2 {
+    text-align: center;
+    /* 文字置中 */
+    color: #007bff;
+    /* 主題顏色 */
+    margin-bottom: 20px;
+    /* 與內容間距 */
+}
+
+/* 評論列表樣式 */
+#comments-list {
+    margin-bottom: 20px;
+    /* 與輸入框間距 */
+    max-height: 400px;
+    /* 最大高度，限制滾動 */
+    overflow-y: auto;
+    /* 垂直滾動 */
+    border: 1px solid #ccc;
+    /* 邊框 */
+    padding: 10px;
+    /* 內邊距 */
+    border-radius: 5px;
+    /* 圓角 */
+    background-color: #f9f9f9;
+    /* 背景色 */
+}
+
+/* 單一評論的樣式 */
+#comments-list p {
+    color: #555;
+    /* 文字顏色 */
+    margin-bottom: 10px;
+    /* 與下一條評論的間距 */
+    font-size: 14px;
+    /* 字體大小 */
+}
+
+/* 評論輸入框樣式 */
+textarea#comment-input {
+    width: 100%;
+    /* 填滿父容器寬度 */
+    height: 120px;
+    /* 固定高度 */
+    padding: 10px;
+    /* 內邊距 */
+    border-radius: 5px;
+    /* 圓角 */
+    border: 1px solid #ccc;
+    /* 邊框顏色 */
+    margin-bottom: 10px;
+    /* 與按鈕間距 */
+    font-size: 14px;
+    /* 字體大小 */
+    transition: border-color 0.3s ease;
+    /* 邊框過渡效果 */
+}
+
+/* 輸入框聚焦時樣式 */
+textarea#comment-input:focus {
+    border-color: #007bff;
+    /* 聚焦時邊框顏色 */
+    outline: none;
+    /* 移除預設聚焦邊框 */
+}
+
+/* 提交按鈕樣式 */
+button#submit-comment {
+    display: block;
+    /* 填滿整行 */
+    width: 100%;
+    /* 按鈕寬度 */
+    padding: 15px;
+    /* 內邊距 */
+    background-color: #007bff;
+    /* 背景色 */
+    color: white;
+    /* 文字顏色 */
+    border: none;
+    /* 移除預設邊框 */
+    border-radius: 5px;
+    /* 圓角 */
+    font-size: 16px;
+    /* 字體大小 */
+    cursor: pointer;
+    /* 游標手型 */
+    transition: background-color 0.3s ease;
+    /* 背景色過渡效果 */
+}
+
+/* 按鈕懸停樣式 */
+button#submit-comment:hover {
+    background-color: #0056b3;
+    /* 懸停時背景色 */
+}
+
+/* 按鈕點擊樣式 */
+button#submit-comment:active {
+    background-color: #003d80;
+    /* 點擊時背景色 */
+}

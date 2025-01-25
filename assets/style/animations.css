@@ -1,0 +1,57 @@
+/* ============================= */
+/* Global Animation Styles       */
+/* ============================= */
+
+/* 背景漸層動畫 */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* 淡入動畫效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hidden 元素的淡入效果 */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.hidden.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* 通用的 hover 動畫縮放 */
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/* 漸變背景的全局動畫應用 */
+body {
+    animation: gradientBG 10s ease infinite;
+}

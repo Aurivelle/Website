@@ -1,0 +1,153 @@
+/* ============================= */
+/* Code Block Styles             */
+/* ============================= */
+
+/* 通用代碼區塊樣式 */
+pre.code-block {
+    background-color: #282a36;
+    /* Dracula 主題背景 */
+    color: #f8f8f2;
+    /* 字體顏色 */
+    padding: 20px;
+    /* 內邊距 */
+    border-radius: 10px;
+    /* 圓角 */
+    font-size: 14px;
+    /* 字體大小 */
+    line-height: 1.6;
+    /* 行距 */
+    overflow-x: auto;
+    /* 橫向滾動 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* 陰影效果 */
+    border: 1px solid #44475a;
+    /* 邊框顏色 */
+    margin-bottom: 20px;
+    /* 與其他元素的間距 */
+    font-family: "Fira Code", "Courier New", monospace;
+    /* 等寬字體 */
+}
+
+/* 高亮的行 */
+pre.code-block .highlighted {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* 淡色背景 */
+}
+
+/* 行號 (如使用 highlight.js line-numbers 插件) */
+.hljs-ln-numbers {
+    text-align: right;
+    /* 行號靠右對齊 */
+    color: #6272a4;
+    /* 行號顏色 */
+    padding-right: 10px;
+    /* 行號內邊距 */
+    border-right: 1px solid #44475a;
+    /* 行號分隔線 */
+    margin-right: 10px;
+}
+
+/* 行內代碼樣式 */
+code.inline-code {
+    background-color: #44475a;
+    /* 背景顏色 */
+    color: #f8f8f2;
+    /* 字體顏色 */
+    padding: 2px 6px;
+    /* 內邊距 */
+    border-radius: 4px;
+    /* 圓角 */
+    font-size: 14px;
+    /* 字體大小 */
+    font-family: "Courier New", monospace;
+    /* 等寬字體 */
+}
+
+/* 滑鼠懸停代碼區塊 */
+pre.code-block:hover {
+    transform: scale(1.02);
+    /* 放大效果 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    /* 陰影變強 */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* 過渡效果 */
+}
+
+/* 註解樣式 */
+pre.code-block .comment {
+    color: #6a9955;
+    /* 綠色註解 */
+    font-style: italic;
+    /* 斜體 */
+}
+
+/* 關鍵字樣式 */
+pre.code-block .keyword {
+    color: #c586c0;
+    /* 紫色關鍵字 */
+    font-weight: bold;
+    /* 粗體 */
+}
+
+/* 數字樣式 */
+pre.code-block .number {
+    color: #b5cea8;
+    /* 綠色數字 */
+}
+
+/* 字符串樣式 */
+pre.code-block .string {
+    color: #ce9178;
+    /* 棕色字符串 */
+}
+
+/* 函數名稱樣式 */
+pre.code-block .function {
+    color: #dcdcaa;
+    /* 黃色函數名稱 */
+}
+
+/* 按鈕容器樣式 */
+.code-buttons {
+    display: flex;
+    /* 橫向排列 */
+    justify-content: flex-end;
+    /* 右對齊 */
+    gap: 10px;
+    /* 按鈕間距 */
+    margin-top: 10px;
+    /* 與代碼區塊的間距 */
+}
+
+/* 按鈕樣式 */
+.code-buttons button {
+    background-color: #007acc;
+    /* 按鈕背景色 */
+    color: white;
+    /* 字體顏色 */
+    border: none;
+    /* 無邊框 */
+    padding: 8px 12px;
+    /* 內邊距 */
+    border-radius: 5px;
+    /* 圓角 */
+    font-size: 14px;
+    /* 字體大小 */
+    cursor: pointer;
+    /* 游標為手型 */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /* 過渡效果 */
+}
+
+/* 按鈕懸停與點擊效果 */
+.code-buttons button:hover {
+    background-color: #005a9e;
+    /* 懸停時背景色 */
+    transform: scale(1.05);
+    /* 輕微放大 */
+}
+
+.code-buttons button:active {
+    background-color: #003d6b;
+    /* 點擊時背景色 */
+}
