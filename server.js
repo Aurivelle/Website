@@ -42,6 +42,19 @@ app.get("/api/notifications", (req, res) => {
   res.json(notifications); // 返回靜態通知列表
 });
 
+app.post("/api/daily-challenges/manual-update", async (req, res) => {
+  try {
+    await updateDailyChallenge();
+    res.status(200).json({ message: "Daily challenge update successful" });
+  } catch (error) {
+    console.error(
+      "❌ Error during manual daily challenge update:",
+      error.message
+    );
+    rest.status(500).json({ message: "Daily challenge update failed" });
+  }
+});
+
 // MongoDB 連接
 mongoose
   .connect(process.env.MONGO_URI, {
