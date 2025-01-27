@@ -1,58 +1,9 @@
-const API_BASE_URL =
-  window.location.hostname === "127.0.0.1" ||
-  window.location.hostname === "localhost"
-    ? "http://localhost:3000/api"
-    : "https://website-seven-omega-42.vercel.app/api";
+const API_BASE_URL = "https://website-seven-omega-42.vercel.app/api"; // API 基本路徑
 
-document.addEventListener("DOMContentLoaded", () => {
-  fetchDailyChallenge();
-  fetchNotifications();
-
-  const recentUpdates = document.getElementById("recent-updates");
-  if (recentUpdates) {
-    const updates = [
-      {
-        type: "Problem",
-        title: "Problem 11: Container with Most Water",
-        link: "11.html",
-      },
-    ];
-    updates.forEach((update) => {
-      const li = document.createElement("li");
-      li.innerHTML = `<a href="${update.link}">${update.title}</a>`;
-      recentUpdates.appendChild(li);
-    });
-  }
-
-  const searchInput = document.getElementById("search");
-  if (searchInput) {
-    const searchResults = document.createElement("ul");
-    searchResults.id = "search-results";
-    searchInput.parentElement.appendChild(searchResults);
-
-    searchInput.addEventListener("input", (e) => {
-      const topics = [{ name: "LeetCode Problem 11", link: "11.html" }];
-      const query = e.target.value.toLowerCase();
-      const results = topics.filter((topic) =>
-        topic.name.toLowerCase().includes(query)
-      );
-
-      searchResults.innerHTML = results
-        .map(
-          (r) => `<li><a href="${r.link}" target="_blank">${r.name}</a></li>`
-        )
-        .join("");
-
-      if (results.length === 0) {
-        searchResults.innerHTML = "<li>No results found</li>";
-      }
-    });
-  }
-});
-
+// 從後端 API 獲取每日挑戰
 const fetchDailyChallenge = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/daily-challenges/today`);
+    const response = await fetch(`${API_BASE_URL}/daily-challenges/today`); // 從正確的 API 獲取數據
     if (!response.ok) {
       throw new Error("Failed to fetch daily challenge");
     }
@@ -62,20 +13,20 @@ const fetchDailyChallenge = async () => {
       challenge.description;
     document.getElementById("challenge-link").href = challenge.link;
   } catch (error) {
-    console.error(`Error fetching daily challenge: ${error.message}`, error);
+    console.error("Error fetching daily challenge:", error);
     document.getElementById("challenge-title").innerText =
       "Daily challenge not available.";
   }
 };
 
+// 從後端 API 獲取通知
 const fetchNotifications = async () => {
   try {
     const response = await fetch(`${API_BASE_URL}/notifications`);
     if (!response.ok) throw new Error("Failed to fetch notifications");
-
     const notifications = await response.json();
-    const notificationsList = document.getElementById("notifications-list");
 
+    const notificationsList = document.getElementById("notifications-list");
     if (notifications.length > 0) {
       notificationsList.innerHTML = "";
       notifications.forEach((notification) => {
@@ -95,8 +46,14 @@ const fetchNotifications = async () => {
       notificationsList.innerHTML = "<li>No notifications available.</li>";
     }
   } catch (error) {
-    console.error(`Error fetching notifications: ${error.message}`, error);
+    console.error("Error fetching notifications:", error);
     const notificationsList = document.getElementById("notifications-list");
     notificationsList.innerHTML = "<li>No notifications available.</li>";
   }
 };
+
+// 在頁面加載完成時執行每日挑戰和通知
+document.addEventListener("DOMContentLoaded", () => {
+  fetchDailyChallenge();
+  fetchNotifications();
+});
