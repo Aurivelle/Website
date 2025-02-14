@@ -1,193 +1,221 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Papers</title>
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dracula.min.css">
-        <!-- 全局樣式 -->
-        <link rel="stylesheet" href="assets/style/global.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Papers</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dracula.min.css"
+    />
+    <!-- 全局樣式 -->
+    <link rel="stylesheet" href="assets/style/global.css" />
 
-        <!-- 動畫相關 -->
-        <link rel="stylesheet" href="assets/style/animations.css">
+    <!-- 動畫相關 -->
+    <link rel="stylesheet" href="assets/style/animations.css" />
 
-        <!-- 側邊欄樣式 -->
-        <link rel="stylesheet" href="assets/style/sidebar.css">
+    <!-- 側邊欄樣式 -->
+    <link rel="stylesheet" href="assets/style/sidebar.css" />
 
-        <!-- 主內容樣式 -->
-        <link rel="stylesheet" href="assets/style/main.css">
+    <!-- 主內容樣式 -->
+    <link rel="stylesheet" href="assets/style/main.css" />
 
-        <!-- 頁尾樣式 -->
-        <link rel="stylesheet" href="assets/style/footer.css">
+    <!-- 頁尾樣式 -->
+    <link rel="stylesheet" href="assets/style/footer.css" />
 
-        <!-- 響應式樣式 -->
-        <link rel="stylesheet" href="assets/style/responsive.css">
+    <!-- 響應式樣式 -->
+    <link rel="stylesheet" href="assets/style/responsive.css" />
 
-        <!-- 表單相關樣式 -->
-        <link rel="stylesheet" href="assets/style/components/forms.css">
+    <!-- 表單相關樣式 -->
+    <link rel="stylesheet" href="assets/style/components/forms.css" />
 
-        <!-- 進度條樣式 -->
-        <link rel="stylesheet" href="assets/style/components/progress-bar.css">
+    <!-- 進度條樣式 -->
+    <link rel="stylesheet" href="assets/style/components/progress-bar.css" />
 
-        <!-- 評論區樣式 -->
-        <link rel="stylesheet" href="assets/style/components/comments.css">
+    <!-- 評論區樣式 -->
+    <link rel="stylesheet" href="assets/style/components/comments.css" />
 
-        <!-- 代碼區塊樣式 -->
-        <link rel="stylesheet" href="assets/style/components/code-blocks.css">
-        <link rel="icon" href="assets/icon.jpg">
-        <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-            rel="stylesheet">
-    </head>
-    <body>
-        <!-- Header Section -->
-        <header class="hero">
-            <h1>Papers</h1>
-        </header>
+    <!-- 代碼區塊樣式 -->
+    <link rel="stylesheet" href="assets/style/components/code-blocks.css" />
+    <link rel="icon" href="assets/icon.jpg" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="hero">
+      <h1>Papers</h1>
+    </header>
 
-        <!-- Main Container -->
-        <div class="container">
-            <!-- Sidebar -->
-            <aside>
-                <img src="assets/cat.jpeg" alt="Cat's Algorithm Logo"
-                    class="logo">
-                <h1>Cat's Algorithm</h1>
-                <nav>
-                    <a href="index.html" class="homepage-link">HomePage</a>
-                    <a href="Me.html">About Me</a>
-                    <a href="leetcode.html">LeetCode Problems</a>
-                    <a href="reading.html">Reading Materials</a>
-                    <a href="template.html">Code Template</a>
-                </nav>
-                <div class="social-media">
-                    <a
-                        href="https://www.linkedin.com/in/%E8%BF%B0%E5%AE%87-%E5%90%B3-44a1b22b0/"
-                        target="_blank" class="linkedin">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
-                    <a href="https://github.com/Aurivelle?tab=repositories"
-                        target="_blank" class="github">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                </div>
-            </aside>
-
-            <!-- Main Content -->
-            <main>
-                <!-- Paper Categories Section -->
-                <section class="problems">
-                    <h2>Paper Categories</h2>
-                    <div class="problem-cards">
-                        <div class="card">
-                            Nothing here yet.
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Recent Papers Section -->
-                <section class="problems">
-                    <h2>Recent Papers</h2>
-                    <div id="arxiv-feed">
-                        <p>Loading latest papers...</p>
-                    </div>
-                </section>
-
-                <!-- Add a New Paper Section -->
-                <section class="problems">
-                    <h2>Add a New Paper</h2>
-                    <form id="add-paper-form" class="paper-form">
-                        <div class="form-group">
-                            <label for="paper-title">Paper Title</label>
-                            <input type="text" id="paper-title"
-                                placeholder="Enter the paper title" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="paper-url">Paper URL</label>
-                            <input type="url" id="paper-url"
-                                placeholder="Enter the paper URL" required>
-                        </div>
-                        <button type="submit" class="submit-button">Add
-                            Paper</button>
-                    </form>
-                </section>
-                <section class="form-container">
-                    <h2>Post Something</h2>
-                    <form id="post-form">
-                        <div class="form-group">
-                            <label for="title">Title:</label>
-                            <input type="text" id="title" name="title"
-                                placeholder="Enter the title" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="content">Content:</label>
-                            <textarea type="content" name="content"
-                                placeholder="Write your content here..."
-                                required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="image">Upload Image:</label>
-                            <input type="file" id="image" name="image"
-                                accept="image/*">
-                        </div>
-                        <button type="submit">Submit</button>
-                    </form>
-                    <script>
-                        const form = document.getElementById("post-form"); // 修正 getElementById 的拼寫錯誤
-                        form.addEventListener("submit", async (e) => {
-                            e.preventDefault(); // 防止頁面重新加載
-                    
-                            // 獲取表單資料
-                            const title = document.getElementById("title").value;
-                            const content = document.getElementById("content").value;
-                    
-                            try {
-                                const response = await fetch("/api/posts", {
-                                    method: "POST",
-                                    headers: {
-                                        "Content-Type": "application/json",
-                                    },
-                                    body: JSON.stringify({ title, content }),
-                                });
-                    
-                                if (response.ok) {
-                                    alert("Post submitted successfully!");
-                                    form.reset(); // 清空表單
-                                } else {
-                                    const errorData = await response.json();
-                                    alert(`Failed to submit post: ${errorData.error}`);
-                                }
-                            } catch (error) {
-                                console.error("Error:", error);
-                                alert("An unexpected error occurred.");
-                            }
-                        });
-                    </script>
-                </section>
-            </main>
+    <!-- Main Container -->
+    <div class="container">
+      <!-- Sidebar -->
+      <aside>
+        <img src="assets/cat.jpeg" alt="Cat's Algorithm Logo" class="logo" />
+        <h1>Cat's Algorithm</h1>
+        <nav>
+          <a href="index.html" class="homepage-link">HomePage</a>
+          <a href="Me.html">About Me</a>
+          <a href="leetcode.html">LeetCode Problems</a>
+          <a href="reading.html">Reading Materials</a>
+          <a href="template.html">Code Template</a>
+        </nav>
+        <div class="social-media">
+          <a
+            href="https://www.linkedin.com/in/%E8%BF%B0%E5%AE%87-%E5%90%B3-44a1b22b0/"
+            target="_blank"
+            class="linkedin"
+          >
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a
+            href="https://github.com/Aurivelle?tab=repositories"
+            target="_blank"
+            class="github"
+          >
+            <i class="fab fa-github"></i> GitHub
+          </a>
         </div>
+      </aside>
 
-        <!-- Footer -->
-        <footer>
-            <div class="footer-container">
-                <p>© 2025 My Website</p>
-                <p>Contact: <a
-                        href="mailto:b12902036@csie.ntu.edu.tw">b12902036@csie.ntu.edu.tw</a></p>
-                <div class="social-links">
-                    <a
-                        href="https://www.linkedin.com/in/%E8%BF%B0%E5%AE%87-%E5%90%B3-44a1b22b0/"
-                        target="_blank" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/Aurivelle?tab=repositories"
-                        target="_blank" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
+      <!-- Main Content -->
+      <main>
+        <!-- Paper Categories Section -->
+        <section class="problems">
+          <h2>Paper Categories</h2>
+          <div class="problem-cards">
+            <div class="card">Nothing here yet.</div>
+          </div>
+        </section>
+
+        <!-- Recent Papers Section -->
+        <section class="problems">
+          <h2>Recent Papers</h2>
+          <div id="arxiv-feed">
+            <p>Loading latest papers...</p>
+          </div>
+        </section>
+
+        <!-- Add a New Paper Section -->
+        <section class="problems">
+          <h2>Add a New Paper</h2>
+          <form id="add-paper-form" class="paper-form">
+            <div class="form-group">
+              <label for="paper-title">Paper Title</label>
+              <input
+                type="text"
+                id="paper-title"
+                placeholder="Enter the paper title"
+                required
+              />
             </div>
-        </footer>
+            <div class="form-group">
+              <label for="paper-url">Paper URL</label>
+              <input
+                type="url"
+                id="paper-url"
+                placeholder="Enter the paper URL"
+                required
+              />
+            </div>
+            <button type="submit" class="submit-button">Add Paper</button>
+          </form>
+        </section>
+        <section class="form-container">
+          <h2>Post Something</h2>
+          <form id="post-form">
+            <div class="form-group">
+              <label for="title">Title:</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                placeholder="Enter the title"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="content">Content:</label>
+              <textarea
+                type="content"
+                name="content"
+                placeholder="Write your content here..."
+                required
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="image">Upload Image:</label>
+              <input type="file" id="image" name="image" accept="image/*" />
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+          <script>
+            const form = document.getElementById("post-form"); // 修正 getElementById 的拼寫錯誤
+            form.addEventListener("submit", async (e) => {
+              e.preventDefault(); // 防止頁面重新加載
 
-        <!-- JavaScript -->
-        <script src="assets/script.js"></script>
-    </body>
+              // 獲取表單資料
+              const title = document.getElementById("title").value;
+              const content = document.getElementById("content").value;
+
+              try {
+                const response = await fetch("/api/posts", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({ title, content }),
+                });
+
+                if (response.ok) {
+                  alert("Post submitted successfully!");
+                  form.reset(); // 清空表單
+                } else {
+                  const errorData = await response.json();
+                  alert(`Failed to submit post: ${errorData.error}`);
+                }
+              } catch (error) {
+                console.error("Error:", error);
+                alert("An unexpected error occurred.");
+              }
+            });
+          </script>
+        </section>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <p>© 2025 My Website</p>
+        <p>
+          Contact:
+          <a href="mailto:b12902036@csie.ntu.edu.tw"
+            >b12902036@csie.ntu.edu.tw</a
+          >
+        </p>
+        <div class="social-links">
+          <a
+            href="https://www.linkedin.com/in/%E8%BF%B0%E5%AE%87-%E5%90%B3-44a1b22b0/"
+            target="_blank"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a
+            href="https://github.com/Aurivelle?tab=repositories"
+            target="_blank"
+            aria-label="GitHub"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/script.js"></script>
+  </body>
 </html>

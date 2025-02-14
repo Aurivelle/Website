@@ -1,188 +1,190 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Code Template</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Template</title>
 
-        <!-- 自訂 CSS 與 Icon -->
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dracula.min.css">
-        <!-- 全局樣式 -->
-        <link rel="stylesheet" href="assets/style/global.css">
+    <!-- 自訂 CSS 與 Icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dracula.min.css"
+    />
+    <!-- 全局樣式 -->
+    <link rel="stylesheet" href="assets/style/global.css" />
 
-        <!-- 動畫相關 -->
-        <link rel="stylesheet" href="assets/style/animations.css">
+    <!-- 動畫相關 -->
+    <link rel="stylesheet" href="assets/style/animations.css" />
 
-        <!-- 側邊欄樣式 -->
-        <link rel="stylesheet" href="assets/style/sidebar.css">
+    <!-- 側邊欄樣式 -->
+    <link rel="stylesheet" href="assets/style/sidebar.css" />
 
-        <!-- 主內容樣式 -->
-        <link rel="stylesheet" href="assets/style/main.css">
+    <!-- 主內容樣式 -->
+    <link rel="stylesheet" href="assets/style/main.css" />
 
-        <!-- 頁尾樣式 -->
-        <link rel="stylesheet" href="assets/style/footer.css">
+    <!-- 頁尾樣式 -->
+    <link rel="stylesheet" href="assets/style/footer.css" />
 
-        <!-- 響應式樣式 -->
-        <link rel="stylesheet" href="assets/style/responsive.css">
+    <!-- 響應式樣式 -->
+    <link rel="stylesheet" href="assets/style/responsive.css" />
 
-        <!-- 表單相關樣式 -->
-        <link rel="stylesheet" href="assets/style/components/forms.css">
+    <!-- 表單相關樣式 -->
+    <link rel="stylesheet" href="assets/style/components/forms.css" />
 
-        <!-- 進度條樣式 -->
-        <link rel="stylesheet" href="assets/style/components/progress-bar.css">
+    <!-- 進度條樣式 -->
+    <link rel="stylesheet" href="assets/style/components/progress-bar.css" />
 
-        <!-- 評論區樣式 -->
-        <link rel="stylesheet" href="assets/style/components/comments.css">
+    <!-- 評論區樣式 -->
+    <link rel="stylesheet" href="assets/style/components/comments.css" />
 
-        <!-- 代碼區塊樣式 -->
-        <link rel="stylesheet" href="assets/style/components/code-blocks.css">
-        <link rel="icon" href="assets/icon.jpg" />
+    <!-- 代碼區塊樣式 -->
+    <link rel="stylesheet" href="assets/style/components/code-blocks.css" />
+    <link rel="icon" href="assets/icon.jpg" />
 
-        <!-- Font Awesome -->
-        <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-            rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
 
-        <!-- Highlight.js (此處選擇 Dracula 主題) -->
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dracula.min.css" />
+    <!-- Highlight.js (此處選擇 Dracula 主題) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dracula.min.css"
+    />
 
-        <!-- Highlight.js 主程式與 C語言支持 -->
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"
-            defer></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"
-            defer></script>
+    <!-- Highlight.js 主程式與 C語言支持 -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"
+      defer
+    ></script>
 
-        <!-- Marked.js 轉換 Markdown 成 HTML -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"
-            defer></script>
+    <!-- Marked.js 轉換 Markdown 成 HTML -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"
+      defer
+    ></script>
 
-        <!-- MathJax 設定 (在載入 tex-mml-chtml 前) -->
-        <script>
-    window.MathJax = {
-      tex: {
-        // 配置 inlineMath，讓單一 $...$ 成為行內公式
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        // 雙美元符號作為顯示模式
-        displayMath: [['$$','$$'], ['\\[','\\]']]
-      }
-    };
-  </script>
+    <!-- MathJax 設定 (在載入 tex-mml-chtml 前) -->
+    <script>
+      window.MathJax = {
+        tex: {
+          // 配置 inlineMath，讓單一 $...$ 成為行內公式
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+          // 雙美元符號作為顯示模式
+          displayMath: [
+            ["$$", "$$"],
+            ["\\[", "\\]"],
+          ],
+        },
+      };
+    </script>
 
-        <!-- MathJax 3.x (TeX-MML-CHTML) -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-            async></script>
-    </head>
-    <body>
-        <!-- Header Section -->
-        <header class="hero">
-            <h1>Code Template</h1>
-        </header>
+    <!-- MathJax 3.x (TeX-MML-CHTML) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+      async
+    ></script>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="hero">
+      <h1>Code Template</h1>
+    </header>
 
-        <!-- Main Container -->
-        <div class="container">
-            <!-- Sidebar -->
-            <aside>
-                <img
-                    src="assets/cat.jpeg"
-                    alt="Cat's Algorithm Logo"
-                    class="logo" />
-                <h1>Cat's Algorithm</h1>
-                <nav>
-                    <a href="index.html" class="homepage-link">HomePage</a>
-                    <a href="Me.html">About Me</a>
-                    <a href="leetcode.html">LeetCode Problems</a>
-                    <a href="papers.html">Papers</a>
-                    <a href="reading.html">Reading Materials</a>
-                </nav>
-                <div class="social-media">
-                    <a
-                        href="https://www.linkedin.com/"
-                        target="_blank"
-                        class="linkedin">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
-                    <a
-                        href="https://github.com/"
-                        target="_blank"
-                        class="github">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                </div>
-            </aside>
-
-            <!-- Main Content -->
-            <main>
-                <!-- Topics Section -->
-                <section class="problems">
-                    <h2>Topics</h2>
-                    <div class="problem-cards">
-                        <div class="card" data-topic="template1">
-                            <h3>BFS</h3>
-                            <p>Typical BFS Template of Graph and Tree</p>
-                        </div>
-                        <div class="card" data-topic="template2">
-                            <h3>Heap</h3>
-                            <p>Typical Heap Construction Template</p>
-                        </div>
-                        <div class="card" data-topic="template3">
-                            <h3>DFS</h3>
-                            <p>Typical DFS Template of Iteration and
-                                Recursion</p>
-                        </div>
-                        <!-- 如果還有更多模板，可依需求新增其他 .card -->
-                    </div>
-                </section>
-
-                <!-- Dynamic Content Section -->
-                <section id="topic-content" class="hidden">
-                    <h2 id="topic-title">Topic Title</h2>
-                    <div id="topic-body">Topic content will be loaded
-                        here...</div>
-                    <button onclick="backToTopics()">Back to Topics</button>
-                </section>
-            </main>
+    <!-- Main Container -->
+    <div class="container">
+      <!-- Sidebar -->
+      <aside>
+        <img src="assets/cat.jpeg" alt="Cat's Algorithm Logo" class="logo" />
+        <h1>Cat's Algorithm</h1>
+        <nav>
+          <a href="index.html" class="homepage-link">HomePage</a>
+          <a href="Me.html">About Me</a>
+          <a href="leetcode.html">LeetCode Problems</a>
+          <a href="papers.html">Papers</a>
+          <a href="reading.html">Reading Materials</a>
+        </nav>
+        <div class="social-media">
+          <a href="https://www.linkedin.com/" target="_blank" class="linkedin">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://github.com/" target="_blank" class="github">
+            <i class="fab fa-github"></i> GitHub
+          </a>
         </div>
+      </aside>
 
-        <!-- Footer -->
-        <footer>
-            <div class="footer-container">
-                <p>© 2025 My Website</p>
-                <p>
-                    Contact:
-                    <a
-                        href="mailto:b12902036@csie.ntu.edu.tw">b12902036@csie.ntu.edu.tw</a>
-                </p>
-                <div class="social-links">
-                    <a
-                        href="https://www.linkedin.com/"
-                        target="_blank"
-                        aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a
-                        href="https://github.com/"
-                        target="_blank"
-                        aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
+      <!-- Main Content -->
+      <main>
+        <!-- Topics Section -->
+        <section class="problems">
+          <h2>Topics</h2>
+          <div class="problem-cards">
+            <div class="card" data-topic="template1">
+              <h3>BFS</h3>
+              <p>Typical BFS Template of Graph and Tree</p>
             </div>
-        </footer>
+            <div class="card" data-topic="template2">
+              <h3>Heap</h3>
+              <p>Typical Heap Construction Template</p>
+            </div>
+            <div class="card" data-topic="template3">
+              <h3>DFS</h3>
+              <p>Typical DFS Template of Iteration and Recursion</p>
+            </div>
+            <!-- 如果還有更多模板，可依需求新增其他 .card -->
+          </div>
+        </section>
 
-        <!-- Script Section -->
-        <script>
-    // 定義每個 Topic (卡片) 的內容
-    const topics = {
-      template1: {
-        title: "BFS",
-        content: `
+        <!-- Dynamic Content Section -->
+        <section id="topic-content" class="hidden">
+          <h2 id="topic-title">Topic Title</h2>
+          <div id="topic-body">Topic content will be loaded here...</div>
+          <button onclick="backToTopics()">Back to Topics</button>
+        </section>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <p>© 2025 My Website</p>
+        <p>
+          Contact:
+          <a href="mailto:b12902036@csie.ntu.edu.tw"
+            >b12902036@csie.ntu.edu.tw</a
+          >
+        </p>
+        <div class="social-links">
+          <a
+            href="https://www.linkedin.com/"
+            target="_blank"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script Section -->
+    <script>
+      // 定義每個 Topic (卡片) 的內容
+      const topics = {
+        template1: {
+          title: "BFS",
+          content: `
 ### **Breadth-First Search (BFS)**
 
 + Breadth-First Search (BFS) is a graph traversal algorithm that explores all the nodes at the current depth level before moving on to the next depth level. Starting from a given source node, it visits all its neighbors first, then their unvisited neighbors, and so on. BFS uses a queue to keep track of the nodes to be visited and ensures that each node is visited only once. It is commonly used to find the shortest path in an unweighted graph, detect connected components, and solve problems like maze exploration, social network analysis, and web crawling.
@@ -300,11 +302,11 @@ void BFS(Node* start)
     free(queue);
 }
 \`\`\`
-        `
-      },
-      template2: {
-        title: "Heap",
-        content: `
+        `,
+        },
+        template2: {
+          title: "Heap",
+          content: `
 ### **Heap Construction**
 
 Heap is a specialized binary tree data structure that satisfies the heap property, meaning the parent node is always greater than or equal to (in a max-heap) or less than or equal to (in a min-heap) its child nodes.
@@ -404,11 +406,11 @@ void printHeap(MaxHeap* heap)
     printf("\\n");
 }
 \`\`\`
-        `
-      },
-      template3: {
-        title: "DFS",
-        content: `
+        `,
+        },
+        template3: {
+          title: "DFS",
+          content: `
 ### **Depth-First Search (DFS)**
 
 Depth-First Search (DFS) is a graph traversal algorithm that explores as far as possible along each branch before backtracking. It starts from a source node, explores one neighbor deeply until reaching a dead end, and then backtracks to explore other unvisited neighbors. DFS can be implemented using a stack (explicit or via recursion). It is commonly used for cycle detection, topological sorting, pathfinding, and solving puzzle-like problems (e.g., maze solving or Sudoku). Unlike BFS, DFS may not always find the shortest path but is more memory efficient in deep graphs.
@@ -520,50 +522,54 @@ void dfsIterative(Graph* graph, int startVertex)
     }
 }
 \`\`\`
-        `
-      }
-    };
+        `,
+        },
+      };
 
-    // DOM 內容載入完後執行
-    document.addEventListener("DOMContentLoaded", () => {
-      // 點擊每張卡片後，載入對應的內容
-      document.querySelectorAll(".card").forEach(card => {
-        card.addEventListener("click", () => {
-          const topicKey = card.getAttribute("data-topic");
-          loadTopicContent(topicKey);
-        });
-      });
-
-      // 初始化 Highlight.js (先對頁面上可能已有的 code block 處理)
-      hljs.highlightAll();
-    });
-
-    // 動態加載 Topic 的內容
-    function loadTopicContent(topicKey) {
-      const topic = topics[topicKey];
-      if (topic) {
-        // 改變標題、正文
-        document.getElementById("topic-title").innerText = topic.title;
-        document.getElementById("topic-body").innerHTML = marked.parse(topic.content);
-
-        // 等等 MathJax 排版完成後，再執行程式碼高亮
-        MathJax.typesetPromise().then(() => {
-          document.querySelectorAll("#topic-body pre code").forEach((block) => {
-            hljs.highlightElement(block);
+      // DOM 內容載入完後執行
+      document.addEventListener("DOMContentLoaded", () => {
+        // 點擊每張卡片後，載入對應的內容
+        document.querySelectorAll(".card").forEach((card) => {
+          card.addEventListener("click", () => {
+            const topicKey = card.getAttribute("data-topic");
+            loadTopicContent(topicKey);
           });
         });
 
-        // 顯示 Topic 內容、隱藏主頁列表
-        document.querySelector(".problems").classList.add("hidden");
-        document.getElementById("topic-content").classList.remove("hidden");
-      }
-    }
+        // 初始化 Highlight.js (先對頁面上可能已有的 code block 處理)
+        hljs.highlightAll();
+      });
 
-    // 返回主頁的按鈕功能
-    function backToTopics() {
-      document.querySelector(".problems").classList.remove("hidden");
-      document.getElementById("topic-content").classList.add("hidden");
-    }
-  </script>
-    </body>
+      // 動態加載 Topic 的內容
+      function loadTopicContent(topicKey) {
+        const topic = topics[topicKey];
+        if (topic) {
+          // 改變標題、正文
+          document.getElementById("topic-title").innerText = topic.title;
+          document.getElementById("topic-body").innerHTML = marked.parse(
+            topic.content,
+          );
+
+          // 等等 MathJax 排版完成後，再執行程式碼高亮
+          MathJax.typesetPromise().then(() => {
+            document
+              .querySelectorAll("#topic-body pre code")
+              .forEach((block) => {
+                hljs.highlightElement(block);
+              });
+          });
+
+          // 顯示 Topic 內容、隱藏主頁列表
+          document.querySelector(".problems").classList.add("hidden");
+          document.getElementById("topic-content").classList.remove("hidden");
+        }
+      }
+
+      // 返回主頁的按鈕功能
+      function backToTopics() {
+        document.querySelector(".problems").classList.remove("hidden");
+        document.getElementById("topic-content").classList.add("hidden");
+      }
+    </script>
+  </body>
 </html>

@@ -19,5 +19,9 @@
   "description": "In 2024 Winter, I am determined to make my website on my own (Well, of course with ChatGPT).\r This is just a beginning...\r HTML, CSS, JS, I am coming.",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^9.20.1",
+    "prettier": "^3.5.1"
+  }
 }

@@ -1,173 +1,176 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Learning Materials</title>
-        <!-- 參考自己的 CSS 檔案 -->
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dracula.min.css">
-        <!-- 全局樣式 -->
-        <link rel="stylesheet" href="assets/style/global.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Materials</title>
+    <!-- 參考自己的 CSS 檔案 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dracula.min.css"
+    />
+    <!-- 全局樣式 -->
+    <link rel="stylesheet" href="assets/style/global.css" />
 
-        <!-- 動畫相關 -->
-        <link rel="stylesheet" href="assets/style/animations.css">
+    <!-- 動畫相關 -->
+    <link rel="stylesheet" href="assets/style/animations.css" />
 
-        <!-- 側邊欄樣式 -->
-        <link rel="stylesheet" href="assets/style/sidebar.css">
+    <!-- 側邊欄樣式 -->
+    <link rel="stylesheet" href="assets/style/sidebar.css" />
 
-        <!-- 主內容樣式 -->
-        <link rel="stylesheet" href="assets/style/main.css">
+    <!-- 主內容樣式 -->
+    <link rel="stylesheet" href="assets/style/main.css" />
 
-        <!-- 頁尾樣式 -->
-        <link rel="stylesheet" href="assets/style/footer.css">
+    <!-- 頁尾樣式 -->
+    <link rel="stylesheet" href="assets/style/footer.css" />
 
-        <!-- 響應式樣式 -->
-        <link rel="stylesheet" href="assets/style/responsive.css">
+    <!-- 響應式樣式 -->
+    <link rel="stylesheet" href="assets/style/responsive.css" />
 
-        <!-- 表單相關樣式 -->
-        <link rel="stylesheet" href="assets/style/components/forms.css">
+    <!-- 表單相關樣式 -->
+    <link rel="stylesheet" href="assets/style/components/forms.css" />
 
-        <!-- 進度條樣式 -->
-        <link rel="stylesheet" href="assets/style/components/progress-bar.css">
+    <!-- 進度條樣式 -->
+    <link rel="stylesheet" href="assets/style/components/progress-bar.css" />
 
-        <!-- 評論區樣式 -->
-        <link rel="stylesheet" href="assets/style/components/comments.css">
+    <!-- 評論區樣式 -->
+    <link rel="stylesheet" href="assets/style/components/comments.css" />
 
-        <!-- 代碼區塊樣式 -->
-        <link rel="stylesheet" href="assets/style/components/code-blocks.css">
-        <!-- 網站 icon -->
-        <link rel="icon" href="assets/icon.jpg" />
-        <!-- Font Awesome -->
-        <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-            rel="stylesheet" />
-        <!-- Highlight.js (Dark theme, 也可改成別的) -->
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" />
-        <!-- Highlight.js 主程式 -->
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"
-            defer></script>
-        <!-- Marked.js 轉換 Markdown 成 HTML -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"
-            defer></script>
-        <script>
-                window.MathJax = {
-                  tex: {
-                    // 配置 inlineMath，讓單一 $...$ 成為行內公式
-                    inlineMath: [['$', '$'], ['\\(', '\\)']],
-                    
-                    // 如果還想支援雙美元符號作為「顯示模式」(display math)，可加上：
-                    displayMath: [['$$','$$'], ['\\[','\\]']]
-                  }
-                };
-                </script>
-        <!-- MathJax 3.x (TeX-MML-CHTML) -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-            async></script>
-    </head>
-    <body>
-        <!-- Header Section -->
-        <header class="hero">
-            <h1>Learning Materials</h1>
-        </header>
+    <!-- 代碼區塊樣式 -->
+    <link rel="stylesheet" href="assets/style/components/code-blocks.css" />
+    <!-- 網站 icon -->
+    <link rel="icon" href="assets/icon.jpg" />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Highlight.js (Dark theme, 也可改成別的) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css"
+    />
+    <!-- Highlight.js 主程式 -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"
+      defer
+    ></script>
+    <!-- Marked.js 轉換 Markdown 成 HTML -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"
+      defer
+    ></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          // 配置 inlineMath，讓單一 $...$ 成為行內公式
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
 
-        <!-- Main Container -->
-        <div class="container">
-            <!-- Sidebar -->
-            <aside>
-                <img
-                    src="assets/cat.jpeg"
-                    alt="Cat's Algorithm Logo"
-                    class="logo" />
-                <h1>Cat's Algorithm</h1>
-                <nav>
-                    <a href="index.html" class="homepage-link">HomePage</a>
-                    <a href="Me.html">About Me</a>
-                    <a href="leetcode.html">LeetCode Problems</a>
-                    <a href="papers.html">Papers</a>
-                    <a href="template.html">Code Template</a>
-                </nav>
-                <div class="social-media">
-                    <a href="https://www.linkedin.com/" target="_blank"
-                        class="linkedin">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
-                    <a href="https://github.com/" target="_blank"
-                        class="github">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                </div>
-            </aside>
+          // 如果還想支援雙美元符號作為「顯示模式」(display math)，可加上：
+          displayMath: [
+            ["$$", "$$"],
+            ["\\[", "\\]"],
+          ],
+        },
+      };
+    </script>
+    <!-- MathJax 3.x (TeX-MML-CHTML) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+      async
+    ></script>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="hero">
+      <h1>Learning Materials</h1>
+    </header>
 
-            <!-- Main Content -->
-            <main>
-                <!-- Recommended Materials Section -->
-                <section class="materials-section">
-                    <h2>Textbooks</h2>
-                    <ul id="materials-list" class="materials-list">
-                        <li>
-                            <a
-                                href="#"
-                                class="material-link"
-                                data-topic="linear-algebra">
-                                Linear Algebra 4th Edition
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- Dynamic Content Section (隱藏區) -->
-                <section id="topic-content" class="hidden">
-                    <h2 id="topic-title">Topic Title</h2>
-                    <div id="topic-body">Topic content will be loaded
-                        here...</div>
-                    <button id="back-button" onclick="backToMaterials()">
-                        Back to Materials
-                    </button>
-                </section>
-            </main>
+    <!-- Main Container -->
+    <div class="container">
+      <!-- Sidebar -->
+      <aside>
+        <img src="assets/cat.jpeg" alt="Cat's Algorithm Logo" class="logo" />
+        <h1>Cat's Algorithm</h1>
+        <nav>
+          <a href="index.html" class="homepage-link">HomePage</a>
+          <a href="Me.html">About Me</a>
+          <a href="leetcode.html">LeetCode Problems</a>
+          <a href="papers.html">Papers</a>
+          <a href="template.html">Code Template</a>
+        </nav>
+        <div class="social-media">
+          <a href="https://www.linkedin.com/" target="_blank" class="linkedin">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://github.com/" target="_blank" class="github">
+            <i class="fab fa-github"></i> GitHub
+          </a>
         </div>
+      </aside>
 
-        <!-- Footer -->
-        <footer>
-            <div class="footer-container">
-                <p>© 2025 My Website</p>
-                <p>
-                    Contact:
-                    <a
-                        href="mailto:b12902036@csie.ntu.edu.tw">b12902036@csie.ntu.edu.tw</a>
-                </p>
-                <div class="social-links">
-                    <a
-                        href="https://www.linkedin.com/"
-                        target="_blank"
-                        aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a
-                        href="https://github.com/"
-                        target="_blank"
-                        aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-            </div>
-        </footer>
+      <!-- Main Content -->
+      <main>
+        <!-- Recommended Materials Section -->
+        <section class="materials-section">
+          <h2>Textbooks</h2>
+          <ul id="materials-list" class="materials-list">
+            <li>
+              <a href="#" class="material-link" data-topic="linear-algebra">
+                Linear Algebra 4th Edition
+              </a>
+            </li>
+          </ul>
+        </section>
 
-        <!-- JavaScript 部分 -->
-        <script>
-        // 等整個 DOM 都載入完後再執行
-        document.addEventListener("DOMContentLoaded", () => {
-            // 定義教材內容，可依需求新增更多章節
-            const materials = {
-                "linear-algebra": {
-                    title: "LINEAR ALGEBRA 4TH EDITION",
-                    content: `
+        <!-- Dynamic Content Section (隱藏區) -->
+        <section id="topic-content" class="hidden">
+          <h2 id="topic-title">Topic Title</h2>
+          <div id="topic-body">Topic content will be loaded here...</div>
+          <button id="back-button" onclick="backToMaterials()">
+            Back to Materials
+          </button>
+        </section>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <p>© 2025 My Website</p>
+        <p>
+          Contact:
+          <a href="mailto:b12902036@csie.ntu.edu.tw"
+            >b12902036@csie.ntu.edu.tw</a
+          >
+        </p>
+        <div class="social-links">
+          <a
+            href="https://www.linkedin.com/"
+            target="_blank"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript 部分 -->
+    <script>
+      // 等整個 DOM 都載入完後再執行
+      document.addEventListener("DOMContentLoaded", () => {
+        // 定義教材內容，可依需求新增更多章節
+        const materials = {
+          "linear-algebra": {
+            title: "LINEAR ALGEBRA 4TH EDITION",
+            content: `
 + Linear Transformation
     + **Definition** : Let V and W be vector spaces (over F). We call a function $T:V \\rightarrow W$ a linear transformation from V to W if, for all $x, y \\in V$ and $c \\in F$, we have
     $$
@@ -263,48 +266,52 @@ $$
 + Definition
     + Let V and W be vector spaces over F. We denote the vector space of all linear transformations from V into W by $\\mathcal{L}(V, W)$. In the case that V = W, we write $\\mathcal{L}(V)$ instead of $\\mathcal{L}(V,W).$
 ---
-`
-                }
-            };
+`,
+          },
+        };
 
-            // 監聽每個教材項目，點擊後切換內容顯示
-            document.querySelectorAll(".material-link").forEach(link => {
-                link.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    const topicKey = link.getAttribute("data-topic");
-                    loadMaterialContent(topicKey);
-                });
-            });
-
-            // 動態加載教材內容
-            function loadMaterialContent(topicKey) {
-                const material = materials[topicKey];
-                if (material) {
-                    // 設定標題
-                    document.getElementById("topic-title").innerText = material.title;
-                    // 透過 marked 將 Markdown 語法轉成 HTML
-                    document.getElementById("topic-body").innerHTML = marked.parse(material.content);
-                    
-                    // MathJax 重新排版 (等待 typesetPromise 完成後才 highlight)
-                    MathJax.typesetPromise().then(() => {
-                        // Highlight.js
-                        document.querySelectorAll("pre code").forEach((el) => {
-                            hljs.highlightElement(el);
-                        });
-                    });
-
-                    // 隱藏原本的教材列表，顯示內文
-                    document.querySelector(".materials-section").classList.add("hidden");
-                    document.getElementById("topic-content").classList.remove("hidden");
-                }
-            }
+        // 監聽每個教材項目，點擊後切換內容顯示
+        document.querySelectorAll(".material-link").forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const topicKey = link.getAttribute("data-topic");
+            loadMaterialContent(topicKey);
+          });
         });
 
-        // 返回列表
-        function backToMaterials() {
-            document.querySelector(".materials-section").classList.remove("hidden");
-            document.getElementById("topic-content").classList.add("hidden");
+        // 動態加載教材內容
+        function loadMaterialContent(topicKey) {
+          const material = materials[topicKey];
+          if (material) {
+            // 設定標題
+            document.getElementById("topic-title").innerText = material.title;
+            // 透過 marked 將 Markdown 語法轉成 HTML
+            document.getElementById("topic-body").innerHTML = marked.parse(
+              material.content,
+            );
+
+            // MathJax 重新排版 (等待 typesetPromise 完成後才 highlight)
+            MathJax.typesetPromise().then(() => {
+              // Highlight.js
+              document.querySelectorAll("pre code").forEach((el) => {
+                hljs.highlightElement(el);
+              });
+            });
+
+            // 隱藏原本的教材列表，顯示內文
+            document
+              .querySelector(".materials-section")
+              .classList.add("hidden");
+            document.getElementById("topic-content").classList.remove("hidden");
+          }
         }
+      });
+
+      // 返回列表
+      function backToMaterials() {
+        document.querySelector(".materials-section").classList.remove("hidden");
+        document.getElementById("topic-content").classList.add("hidden");
+      }
     </script>
-    </body>
+  </body>
 </html>

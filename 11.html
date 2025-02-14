@@ -1,124 +1,116 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11. Container with Most Water</title>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>11. Container with Most Water</title>
-
-        <!-- Highlight.js -->
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
-        <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            hljs.highlightAll(); // Initialize code highlighting
-        });
+    <!-- Highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll(); // Initialize code highlighting
+      });
     </script>
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dracula.min.css">
-        <!-- 全局樣式 -->
-        <link rel="stylesheet" href="assets/style/global.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dracula.min.css"
+    />
+    <!-- 全局樣式 -->
+    <link rel="stylesheet" href="assets/style/global.css" />
 
-        <!-- 動畫相關 -->
-        <link rel="stylesheet" href="assets/style/animations.css">
+    <!-- 動畫相關 -->
+    <link rel="stylesheet" href="assets/style/animations.css" />
 
-        <!-- 側邊欄樣式 -->
-        <link rel="stylesheet" href="assets/style/sidebar.css">
+    <!-- 側邊欄樣式 -->
+    <link rel="stylesheet" href="assets/style/sidebar.css" />
 
-        <!-- 主內容樣式 -->
-        <link rel="stylesheet" href="assets/style/main.css">
+    <!-- 主內容樣式 -->
+    <link rel="stylesheet" href="assets/style/main.css" />
 
-        <!-- 頁尾樣式 -->
-        <link rel="stylesheet" href="assets/style/footer.css">
+    <!-- 頁尾樣式 -->
+    <link rel="stylesheet" href="assets/style/footer.css" />
 
-        <!-- 響應式樣式 -->
-        <link rel="stylesheet" href="assets/style/responsive.css">
+    <!-- 響應式樣式 -->
+    <link rel="stylesheet" href="assets/style/responsive.css" />
 
-        <!-- 表單相關樣式 -->
-        <link rel="stylesheet" href="assets/style/components/forms.css">
+    <!-- 表單相關樣式 -->
+    <link rel="stylesheet" href="assets/style/components/forms.css" />
 
-        <!-- 進度條樣式 -->
-        <link rel="stylesheet" href="assets/style/components/progress-bar.css">
+    <!-- 進度條樣式 -->
+    <link rel="stylesheet" href="assets/style/components/progress-bar.css" />
 
-        <!-- 評論區樣式 -->
-        <link rel="stylesheet" href="assets/style/components/comments.css">
+    <!-- 評論區樣式 -->
+    <link rel="stylesheet" href="assets/style/components/comments.css" />
 
-        <!-- 代碼區塊樣式 -->
-        <link rel="stylesheet" href="assets/style/components/code-blocks.css">
-        <link rel="icon" href="assets/icon.jpg">
-        <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-            rel="stylesheet">
-    </head>
+    <!-- 代碼區塊樣式 -->
+    <link rel="stylesheet" href="assets/style/components/code-blocks.css" />
+    <link rel="icon" href="assets/icon.jpg" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-    <body>
-        <!-- Header Section -->
-        <header class="hero">
-            <h1>11. Container with Most Water</h1>
-        </header>
+  <body>
+    <!-- Header Section -->
+    <header class="hero">
+      <h1>11. Container with Most Water</h1>
+    </header>
 
-        <!-- Main Container -->
-        <div class="container">
-            <!-- Sidebar -->
-            <aside>
-                <img src="assets/cat.jpeg" alt="Cat's Algorithm Logo"
-                    class="logo">
-                <h1>Cat's Algorithm</h1>
-                <nav>
-                    <a href="index.html" class="homepage-link">HomePage</a>
-                    <a href="Me.html">About Me</a>
-                    <a href="leetcode.html">LeetCode Problems</a>
-                    <a href="papers.html">Papers</a>
-                    <a href="reading.html">Reading Materials</a>
-                    <a href="template.html">Code Template</a>
-                </nav>
-                <div class="social-media">
-                    <a href="https://www.linkedin.com/" target="_blank"
-                        class="linkedin">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
-                    <a href="https://github.com/" target="_blank"
-                        class="github">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                </div>
-            </aside>
+    <!-- Main Container -->
+    <div class="container">
+      <!-- Sidebar -->
+      <aside>
+        <img src="assets/cat.jpeg" alt="Cat's Algorithm Logo" class="logo" />
+        <h1>Cat's Algorithm</h1>
+        <nav>
+          <a href="index.html" class="homepage-link">HomePage</a>
+          <a href="Me.html">About Me</a>
+          <a href="leetcode.html">LeetCode Problems</a>
+          <a href="papers.html">Papers</a>
+          <a href="reading.html">Reading Materials</a>
+          <a href="template.html">Code Template</a>
+        </nav>
+        <div class="social-media">
+          <a href="https://www.linkedin.com/" target="_blank" class="linkedin">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://github.com/" target="_blank" class="github">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </aside>
 
-            <!-- Main Content -->
-            <main>
-                <!-- Problem Description -->
-                <section class="problem-description">
-                    <h2>Problem Description</h2>
-                    <div class="markdown-container">
-                        <!-- Markdown Rendered Content -->
-                        <div id="markdown-content">
-                            <p>
-                                Given <code>n</code> non-negative integers
-                                <code>a<sub>1</sub>, a<sub>2</sub>, ...,
-                                    a<sub>n</sub></code>,
-                                where each represents a point at coordinate
-                                <code>(i, a<sub>i</sub>)</code>.
-                                <code>n</code> vertical lines are drawn such
-                                that the two endpoints of the line
-                                <code>i</code> are at <code>(i,
-                                    a<sub>i</sub>)</code> and <code>(i,
-                                    0)</code>. Find two lines,
-                                which, together with the x-axis, form a
-                                container such that the container contains the
-                                most water.
-                            </p>
-                            <p><strong>Notice:</strong> You may not slant the
-                                container.</p>
-                        </div>
-                    </div>
-                </section>
+      <!-- Main Content -->
+      <main>
+        <!-- Problem Description -->
+        <section class="problem-description">
+          <h2>Problem Description</h2>
+          <div class="markdown-container">
+            <!-- Markdown Rendered Content -->
+            <div id="markdown-content">
+              <p>
+                Given <code>n</code> non-negative integers
+                <code>a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub></code
+                >, where each represents a point at coordinate
+                <code>(i, a<sub>i</sub>)</code>. <code>n</code> vertical lines
+                are drawn such that the two endpoints of the line
+                <code>i</code> are at <code>(i, a<sub>i</sub>)</code> and
+                <code>(i, 0)</code>. Find two lines, which, together with the
+                x-axis, form a container such that the container contains the
+                most water.
+              </p>
+              <p><strong>Notice:</strong> You may not slant the container.</p>
+            </div>
+          </div>
+        </section>
 
-                <!-- Example Section -->
-                <section class="example-section">
-                    <h2>Example</h2>
-                    <pre class="code-template">
+        <!-- Example Section -->
+        <section class="example-section">
+          <h2>Example</h2>
+          <pre class="code-template">
 <code class="language-javascript">
 Input: height = [1,8,6,2,5,4,8,3,7]
 Output: 49
@@ -127,28 +119,33 @@ The area of water the container can contain is calculated as:
 Area = min(height[1], height[8]) * (8 - 1) = 7 * 7 = 49.
 </code>
                 </pre>
-                </section>
-            </main>
+        </section>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <p>© 2025 My Website</p>
+        <p>
+          Contact:
+          <a href="mailto:b12902036@csie.ntu.edu.tw"
+            >b12902036@csie.ntu.edu.tw</a
+          >
+        </p>
+        <div class="social-links">
+          <a
+            href="https://www.linkedin.com/"
+            target="_blank"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
         </div>
-
-        <!-- Footer -->
-        <footer>
-            <div class="footer-container">
-                <p>© 2025 My Website</p>
-                <p>Contact: <a
-                        href="mailto:b12902036@csie.ntu.edu.tw">b12902036@csie.ntu.edu.tw</a></p>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/" target="_blank"
-                        aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/" target="_blank"
-                        aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-            </div>
-        </footer>
-    </body>
-
+      </div>
+    </footer>
+  </body>
 </html>

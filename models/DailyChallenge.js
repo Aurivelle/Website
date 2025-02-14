@@ -22,7 +22,7 @@ const DailyChallengeSchema = new mongoose.Schema(
     },
     tags: [{ type: String }], // 類別標籤（可選）
   },
-  { timestamps: true } // 自動生成 createdAt 和 updatedAt
+  { timestamps: true }, // 自動生成 createdAt 和 updatedAt
 );
 
 module.exports = mongoose.model("DailyChallenge", DailyChallengeSchema);

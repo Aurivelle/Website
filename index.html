@@ -1,139 +1,155 @@
-<!DOCTYPE html> <!-- Document type -->
-<html lang="en"> <!-- Language -->
-    <head> <!-- Metadata and reference -->
-        <meta charset="UTF-8"> <!-- Language  -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Compataible size with different devices -->
-        <title>Cat's Algorithm</title>
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dracula.min.css">
-        <!-- 全局樣式 -->
-        <link rel="stylesheet" href="assets/style/global.css">
+<!doctype html>
+<!-- Document type -->
+<html lang="en">
+  <!-- Language -->
+  <head>
+    <!-- Metadata and reference -->
+    <meta charset="UTF-8" />
+    <!-- Language  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Compataible size with different devices -->
+    <title>Cat's Algorithm</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dracula.min.css"
+    />
+    <!-- 全局樣式 -->
+    <link rel="stylesheet" href="assets/style/global.css" />
 
-        <!-- 動畫相關 -->
-        <link rel="stylesheet" href="assets/style/animations.css">
+    <!-- 動畫相關 -->
+    <link rel="stylesheet" href="assets/style/animations.css" />
 
-        <!-- 側邊欄樣式 -->
-        <link rel="stylesheet" href="assets/style/sidebar.css">
+    <!-- 側邊欄樣式 -->
+    <link rel="stylesheet" href="assets/style/sidebar.css" />
 
-        <!-- 主內容樣式 -->
-        <link rel="stylesheet" href="assets/style/main.css">
+    <!-- 主內容樣式 -->
+    <link rel="stylesheet" href="assets/style/main.css" />
 
-        <!-- 頁尾樣式 -->
-        <link rel="stylesheet" href="assets/style/footer.css">
+    <!-- 頁尾樣式 -->
+    <link rel="stylesheet" href="assets/style/footer.css" />
 
-        <!-- 響應式樣式 -->
-        <link rel="stylesheet" href="assets/style/responsive.css">
+    <!-- 響應式樣式 -->
+    <link rel="stylesheet" href="assets/style/responsive.css" />
 
-        <!-- 表單相關樣式 -->
-        <link rel="stylesheet" href="assets/style/components/forms.css">
+    <!-- 表單相關樣式 -->
+    <link rel="stylesheet" href="assets/style/components/forms.css" />
 
-        <!-- 進度條樣式 -->
-        <link rel="stylesheet" href="assets/style/components/progress-bar.css">
+    <!-- 進度條樣式 -->
+    <link rel="stylesheet" href="assets/style/components/progress-bar.css" />
 
-        <!-- 評論區樣式 -->
-        <link rel="stylesheet" href="assets/style/components/comments.css">
+    <!-- 評論區樣式 -->
+    <link rel="stylesheet" href="assets/style/components/comments.css" />
 
-        <!-- 代碼區塊樣式 -->
-        <link rel="stylesheet" href="assets/style/components/code-blocks.css">
-        <link rel="icon" href="assets/icon.jpg">
-        <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-            rel="stylesheet">
-    </head>
-    <body>
-        <!-- Header -->
-        <header class="hero">
-            <h1>Welcome to Cat's Algorithm</h1>
-        </header>
+    <!-- 代碼區塊樣式 -->
+    <link rel="stylesheet" href="assets/style/components/code-blocks.css" />
+    <link rel="icon" href="assets/icon.jpg" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="hero">
+      <h1>Welcome to Cat's Algorithm</h1>
+    </header>
 
-        <!-- Container -->
-        <div class="container">
-            <!-- Sidebar -->
-            <aside>
-                <img src="assets/cat.jpeg" alt="Cat's Algorithm Logo"
-                    class="logo">
-                <h1>Cat's Algorithm</h1>
-                <nav>
-                    <a href="Me.html">About Me</a>
-                    <a href="leetcode.html">LeetCode Problems</a>
-                    <a href="papers.html">Papers</a>
-                    <a href="reading.html">Reading Materials</a>
-                    <a href="template.html">Code Template</a>
-                </nav>
-                <div class="social-media">
-                    <a
-                        href="https://www.linkedin.com/in/%E8%BF%B0%E5%AE%87-%E5%90%B3-44a1b22b0/"
-                        target="_blank" class="linkedin">
-                        <i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="https://github.com/Aurivelle?tab=repositories"
-                        target="_blank" class="github">
-                        <i class="fab fa-github"></i> GitHub</a>
-                </div>
-            </aside>
-
-            <!-- Main Content -->
-            <main>
-                <section class="welcome">
-                    <h2>Welcome to Cat's Algorithm</h2>
-                    <p>This is Cat's Algorithm. I will record my learnings
-                        everyday (hopefully).</p>
-                    <p>Including LeetCode, papers, and self-learning.</p>
-                    <p>I hope we can learn together and give each other
-                        suggestions.</p>
-                </section>
-                <section class="updates">
-                    <h3>Recent Updates</h3>
-                    <ul id="recent-updates"></ul> <!-- In script.js -->
-                </section>
-                <section class="search">
-                    <h3>Search</h3>
-                    <input type="text" id="search" placeholder="Search...">
-                    <button id="search-btn">Search</button>
-                </section>
-                <section class="challenge" id="daily-challenge">
-                    <h3>Daily Challenge</h3>
-                    <p id="challenge-title">Loading...</p>
-                    <p id="challenge-description"></p>
-                    <a id="challenge-link" href="#" target="_blank">Go to
-                        Challenge</a>
-                </section>
-                <section class="statistics">
-                    <h3>Statistics</h3>
-                    <p>No statistics yet.</p>
-                </section>
-                <section id="notifications">
-                    <h3>Notifications</h3>
-                    <ul id="notifications-list"></ul>
-                    <button id="clear-notifications">Clear
-                        Notifications</button>
-                </section>
-            </main>
+    <!-- Container -->
+    <div class="container">
+      <!-- Sidebar -->
+      <aside>
+        <img src="assets/cat.jpeg" alt="Cat's Algorithm Logo" class="logo" />
+        <h1>Cat's Algorithm</h1>
+        <nav>
+          <a href="Me.html">About Me</a>
+          <a href="leetcode.html">LeetCode Problems</a>
+          <a href="papers.html">Papers</a>
+          <a href="reading.html">Reading Materials</a>
+          <a href="template.html">Code Template</a>
+        </nav>
+        <div class="social-media">
+          <a
+            href="https://www.linkedin.com/in/%E8%BF%B0%E5%AE%87-%E5%90%B3-44a1b22b0/"
+            target="_blank"
+            class="linkedin"
+          >
+            <i class="fab fa-linkedin"></i> LinkedIn</a
+          >
+          <a
+            href="https://github.com/Aurivelle?tab=repositories"
+            target="_blank"
+            class="github"
+          >
+            <i class="fab fa-github"></i> GitHub</a
+          >
         </div>
+      </aside>
 
-        <!-- Include Scripts -->
-        <script src="assets/script.js"></script>
-    </body>
-    <footer>
-        <div class="footer-container">
-            <p>© 2025 My Website</p>
-            <p>
-                Contact: <a
-                    href="mailto:b12902036@csie.ntu.edu.tw">b12902036@csie.ntu.edu.tw</a>
-            </p>
-            <div class="social-links">
-                <a
-                    href="https://www.linkedin.com/in/%E8%BF%B0%E5%AE%87-%E5%90%B3-44a1b22b0/"
-                    target="_blank"
-                    aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/Aurivelle?tab=repositories"
-                    target="_blank"
-                    aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
+      <!-- Main Content -->
+      <main>
+        <section class="welcome">
+          <h2>Welcome to Cat's Algorithm</h2>
+          <p>
+            This is Cat's Algorithm. I will record my learnings everyday
+            (hopefully).
+          </p>
+          <p>Including LeetCode, papers, and self-learning.</p>
+          <p>I hope we can learn together and give each other suggestions.</p>
+        </section>
+        <section class="updates">
+          <h3>Recent Updates</h3>
+          <ul id="recent-updates"></ul>
+          <!-- In script.js -->
+        </section>
+        <section class="search">
+          <h3>Search</h3>
+          <input type="text" id="search" placeholder="Search..." />
+          <button id="search-btn">Search</button>
+        </section>
+        <section class="challenge" id="daily-challenge">
+          <h3>Daily Challenge</h3>
+          <p id="challenge-title">Loading...</p>
+          <p id="challenge-description"></p>
+          <a id="challenge-link" href="#" target="_blank">Go to Challenge</a>
+        </section>
+        <section class="statistics">
+          <h3>Statistics</h3>
+          <p>No statistics yet.</p>
+        </section>
+        <section id="notifications">
+          <h3>Notifications</h3>
+          <ul id="notifications-list"></ul>
+          <button id="clear-notifications">Clear Notifications</button>
+        </section>
+      </main>
+    </div>
+
+    <!-- Include Scripts -->
+    <script src="assets/script.js"></script>
+  </body>
+  <footer>
+    <div class="footer-container">
+      <p>© 2025 My Website</p>
+      <p>
+        Contact:
+        <a href="mailto:b12902036@csie.ntu.edu.tw">b12902036@csie.ntu.edu.tw</a>
+      </p>
+      <div class="social-links">
+        <a
+          href="https://www.linkedin.com/in/%E8%BF%B0%E5%AE%87-%E5%90%B3-44a1b22b0/"
+          target="_blank"
+          aria-label="LinkedIn"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a
+          href="https://github.com/Aurivelle?tab=repositories"
+          target="_blank"
+          aria-label="GitHub"
+        >
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
 </html>
